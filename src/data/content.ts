@@ -1,13 +1,13 @@
 export type TrackId = "automobile" | "eee" | "civil";
 
 export const routes = {
-  challenge: "#challenge",
-  tracks: "#tracks",
-  problems: "#tracks", // → /problems when built
-  howItWorks: "#how-it-works",
-  support: "#support",
-  faq: "#faq",
-  register: "#register", // → /register when built
+  challenge: "/#challenge",
+  tracks: "/#tracks",
+  problems: "/problems",
+  howItWorks: "/#how-it-works",
+  support: "/#support",
+  faq: "/#faq",
+  register: "/#register", // → /register when built
 } as const;
 
 export const navLinks = [
@@ -20,7 +20,7 @@ export const navLinks = [
 ];
 
 export const heroStats = [
-  { icon: "tracks", value: "3", label: "Engineering Tracks" },
+  { icon: "tracks", value: "3", label: "Tracks" },
   { icon: "problems", value: "Real-World", label: "Problem Statements" },
   { icon: "mentorship", value: "Expert", label: "Mentorship" },
   { icon: "recognition", value: "National", label: "Recognition" },
@@ -41,32 +41,32 @@ export const tracks: Track[] = [
   {
     id: "automobile",
     number: "01",
-    title: "Automobile Engineering",
-    discipline: "Automobile",
-    tagline: "Mobility. Energy. Performance.",
-    descriptor: "Prototype smarter, cleaner and safer ways to move people and goods.",
+    title: "AutoHack",
+    discipline: "AutoHack",
+    tagline: "Smart. Safe. Green.",
+    descriptor: "Automotive Innovation Challenge: practical, affordable ideas for sustainable mobility.",
     image: "/images/track-automobile.png",
-    href: "#tracks",
+    href: "/problems#autohack",
   },
   {
     id: "eee",
     number: "02",
-    title: "Electrical & Electronics Engineering",
-    discipline: "EEE",
-    tagline: "Systems. Intelligence. Impact.",
-    descriptor: "Build embedded, sensing and control systems that solve real problems.",
+    title: "ChargeUp",
+    discipline: "ChargeUp",
+    tagline: "Charging India's Future.",
+    descriptor: "E-mobility and clean energy: build it with circuits, code or both.",
     image: "/images/track-eee.png",
-    href: "#tracks",
+    href: "/problems#chargeup",
   },
   {
     id: "civil",
     number: "03",
-    title: "Civil Engineering",
-    discipline: "Civil",
-    tagline: "Infrastructure. Environment. Society.",
-    descriptor: "Design resilient, sustainable structures and infrastructure for communities.",
+    title: "InfraHack",
+    discipline: "InfraHack",
+    tagline: "Build. Simulate. Solve.",
+    descriptor: "Six real-world problems across monitoring, sustainability and geospatial analysis.",
     image: "/images/track-civil.png",
-    href: "#tracks",
+    href: "/problems#infrahack",
   },
 ];
 

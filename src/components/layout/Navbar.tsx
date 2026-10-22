@@ -5,7 +5,7 @@ import { Button } from "../ui/Button";
 import { Icon } from "../ui/Icon";
 import { Logo } from "../ui/Logo";
 
-export function Navbar() {
+export function Navbar({ solid = false }: { solid?: boolean }) {
   const scrolled = useScrolled();
   const [open, setOpen] = useState(false);
 
@@ -17,9 +17,9 @@ export function Navbar() {
   }, [open]);
 
   return (
-    <header className={`nav${scrolled || open ? " nav--solid" : ""}`}>
+    <header className={`nav${solid || scrolled || open ? " nav--solid" : ""}`}>
       <div className="container nav__inner">
-        <a href="#top" className="nav__logo" aria-label="National Innovation Challenge, home">
+        <a href="/" className="nav__logo" aria-label="National Innovation Challenge, home">
           <Logo />
         </a>
 

@@ -299,3 +299,123 @@ svg, img { display: block; max-width: 100%; }
 }
 .track-card__media::after { transition: opacity var(--transition-standard); }
 .track-card:hover .track-card__media::after, .track-card:has(.track-card__link:focus-visible) .track-card__media::after { opacity: 0; }
+
+/* ---------- Problem statements ---------- */
+.problems-intro { padding-bottom: var(--space-10); }
+.problems-track { background: var(--nic-white); }
+.problems-track:nth-of-type(odd) { background: var(--nic-paper, #F5F7FB); }
+.problems-track { border-top: 1px solid var(--color-border); }
+
+.ptabs { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-8); }
+.ptab {
+  min-height: 44px; padding: var(--space-2) var(--space-5); display: inline-flex; align-items: center; gap: var(--space-2);
+  border: 1px solid var(--color-border); border-radius: var(--radius-pill); background: var(--nic-white);
+  font-weight: var(--fw-semibold); color: var(--nic-graphite); text-decoration: none;
+  transition: border-color var(--transition-standard), background var(--transition-standard);
+}
+.ptab:hover { border-color: var(--track-color); background: var(--track-tint); }
+.ptab:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }
+.ptab .t-label { color: var(--track-ink); }
+
+.pevent { display: grid; gap: var(--space-8); padding-bottom: var(--space-10); }
+.pevent__kicker { color: var(--track-ink); }
+.pevent__name { margin-top: var(--space-2); }
+.pevent__theme { color: var(--nic-slate); margin: var(--space-3) 0 0; max-width: 52ch; font-size: 1.125rem; }
+.pevent__facts { display: flex; flex-wrap: wrap; gap: var(--space-6) var(--space-10); margin: 0; padding-left: var(--space-6); border-left: 4px solid var(--track-color); }
+.pevent__facts dt { color: var(--nic-slate); }
+.pevent__facts dd { margin: var(--space-1) 0 0; font-weight: var(--fw-semibold); color: var(--nic-graphite); }
+@media (min-width: 1024px) { .pevent { grid-template-columns: 1.3fr 1fr; align-items: end; } }
+
+.problem-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-6); grid-template-columns: 1fr; }
+.problem-grid > * { display: flex; }
+@media (min-width: 768px) { .problem-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1200px) { .problem-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.problem {
+  position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-3); width: 100%;
+  padding: var(--space-8) var(--card-pad) var(--card-pad); overflow: hidden;
+  background: var(--nic-white); color: var(--nic-graphite); border: 1px solid var(--color-border);
+  border-top: 4px solid var(--track-color); border-radius: var(--card-radius);
+  transition: transform var(--transition-emphasis), box-shadow var(--transition-emphasis), border-color var(--transition-standard);
+}
+.problem:hover { transform: translateY(var(--move-hover)); box-shadow: var(--card-elevated-shadow); border-color: var(--track-color); }
+.problem__num {
+  position: absolute; right: var(--space-4); top: var(--space-2); font: var(--fw-bold) 4.5rem/1 var(--font-display);
+  color: var(--track-tint); user-select: none; pointer-events: none;
+}
+.problem__theme { color: var(--track-ink); position: relative; max-width: 80%; }
+.problem__title { position: relative; color: var(--nic-graphite); margin: 0; }
+.problem__hook { font-weight: var(--fw-semibold); color: var(--track-ink); margin: 0; }
+.problem__challenge {
+  color: var(--nic-slate); margin: 0; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+}
+.problem__open {
+  margin-top: auto; align-self: stretch; min-height: 44px; display: inline-flex; align-items: center; justify-content: space-between; gap: var(--space-2);
+  padding: var(--space-2) var(--space-4); border: 1px solid var(--color-border-strong); border-radius: var(--radius-md, 10px);
+  background: none; font: inherit; font-weight: var(--fw-semibold); color: var(--nic-graphite); cursor: pointer;
+  transition: background var(--transition-standard), border-color var(--transition-standard);
+}
+.problem__challenge + .problem__open { margin-top: var(--space-4); }
+.problem__open:hover { background: var(--track-tint); border-color: var(--track-color); }
+.problem__open:focus-visible, .pmodal__close:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }
+
+/* modal */
+.pmodal {
+  width: min(720px, calc(100vw - var(--space-8))); max-height: calc(100dvh - var(--space-8)); padding: 0; margin: auto;
+  border: 0; border-radius: var(--card-radius); background: var(--nic-white); color: var(--nic-graphite);
+  border-top: 6px solid var(--track-color); box-shadow: 0 24px 80px rgb(10 5 40 / 0.45); overflow: hidden;
+}
+.pmodal[open] { display: flex; flex-direction: column; animation: pmodal-in var(--duration-reveal, 400ms) var(--ease-emphasis) both; }
+.pmodal::backdrop { background: rgb(14 8 40 / 0.72); backdrop-filter: blur(4px); }
+.pmodal__panel { overflow-y: auto; padding: var(--space-8); display: grid; gap: var(--space-6); }
+.pmodal__head { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-4); }
+.pmodal__head h2 { color: var(--nic-graphite); margin-top: var(--space-2); }
+.pmodal__kicker { color: var(--track-ink); }
+.pmodal__close {
+  flex: none; width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--color-border-strong);
+  border-radius: 50%; background: var(--nic-white); color: var(--nic-graphite); cursor: pointer;
+}
+.pmodal__close:hover { background: var(--track-tint); }
+.pmodal__body { display: grid; gap: var(--space-5); margin: 0; }
+.pmodal__detail { padding-top: var(--space-4); border-top: 1px solid var(--color-border); }
+.pmodal__detail dt { color: var(--track-ink); margin-bottom: var(--space-2); }
+.pmodal__detail dd { margin: 0; color: var(--nic-graphite); line-height: 1.6; }
+body:has(dialog[open]) { overflow: hidden; }
+@keyframes pmodal-in { from { opacity: 0; transform: translateY(var(--move-reveal)); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .pmodal[open] { animation: none; } }
+
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.chips li { padding: var(--space-1) var(--space-3); border-radius: var(--radius-pill); background: var(--track-tint); color: var(--track-ink); font-size: var(--fs-caption); font-weight: var(--fw-semibold); }
+
+
+/* ---------- Section blends (home) ----------
+   Each section opens with a soft fade from the colour of the section above,
+   so dark/light changes read as a gradient instead of a hard edge. */
+#how-it-works, #challenge, #support, #register { --seam-h: 8rem; padding-top: calc(var(--section-y) + 3rem); }
+#how-it-works { --seam-from: var(--nic-paper); }
+#challenge { --seam-from: var(--nic-deep-violet); }
+#support { --seam-from: var(--nic-white); --seam-h: 5rem; padding-top: var(--section-y); }
+#register { --seam-from: var(--nic-paper); }
+#how-it-works::before, #challenge::before, #support::before, #register::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: var(--seam-h); pointer-events: none; z-index: 0;
+  background: linear-gradient(180deg,
+    var(--seam-from) 0%,
+    color-mix(in srgb, var(--seam-from) 80%, transparent) 20%,
+    color-mix(in srgb, var(--seam-from) 50%, transparent) 45%,
+    color-mix(in srgb, var(--seam-from) 22%, transparent) 70%,
+    color-mix(in srgb, var(--seam-from) 6%, transparent) 90%,
+    transparent 100%);
+}
+#how-it-works > .container, #challenge > .container, #support > .container, #register > .container { position: relative; z-index: 1; }
+
+/* Hero dissolves into the paper section below: the fade lives in the hero so it starts from the artwork, not a flat band. */
+.hero { padding-bottom: calc(var(--space-10) + 7rem); }
+.hero::after {
+  content: ""; position: absolute; inset: auto 0 0 0; height: 14rem; z-index: -1; pointer-events: none;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    color-mix(in srgb, var(--nic-paper) 8%, transparent) 25%,
+    color-mix(in srgb, var(--nic-paper) 30%, transparent) 50%,
+    color-mix(in srgb, var(--nic-paper) 65%, transparent) 75%,
+    var(--nic-paper) 100%);
+}
