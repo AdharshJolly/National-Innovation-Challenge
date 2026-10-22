@@ -1,50 +1,42 @@
-# NIC Design System V1
+# National Innovation Challenge — Phase 1 Homepage
 
-Design system for the **National Innovation Challenge** — direction: **Innovation Spectrum**.
+Vite + React 18 + TypeScript (strict), built on the **NIC Design System V1** (direction: Innovation Spectrum).
 
-> ## Scope: design system only
-> **No website pages have been built.** No homepage, landing, track, problem-statement, registration, dashboard, FAQ or finale pages. No routing, backend, database, auth, CMS or competition logic. No final visual assets have been generated (all are `NOT GENERATED`).
+## Run
 
-## Start here
-
-1. `DESIGN_SYSTEM.md` — master guide
-2. `BRAND_GUIDELINES.md` — personality, rules, logo placeholder
-3. `nic.css` — import this to get every token and base style
-
-## Use it
-
-```html
-<link rel="stylesheet" href="nic.css">
+```bash
+npm install
+npm run dev        # local dev server
+npm run build      # production build
+npx tsc --noEmit   # type check
+npm run lint
+npm test
 ```
 
-```css
-.thing { color: var(--color-text); background: var(--color-surface); }
-```
+## Docs
 
-Context attributes: `data-surface="dark"`, `data-track="automobile|eee|civil"`, `data-status="open|closing|closed|review|selected|finalist|winner"`.
+Everything about the design system lives in one file: [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) (brand, colour, type, spacing, grid, backgrounds, components, motion, imagery, accessibility, roadmap).
 
 ## Structure
 
 | Path | Contents |
 |---|---|
-| `tokens/` | color, gradients, typography, spacing, radius, shadows, motion, breakpoints, components |
+| `tokens/` | colour, gradients, typography, spacing, radius, shadows, motion, breakpoints, components |
 | `styles/` | typography classes, background recipes, base/focus/reduced-motion |
-| `docs/` | color, type, spacing/radius/shadow, grid, components, engineering visual language, backgrounds |
-| `icons/ICON_SYSTEM.md` | icon spec |
-| `motion/motion-guidelines.md` | motion rules |
-| `imagery/IMAGE_ASSET_PLAN.md` | image art direction (26 planned) |
-| `assets/ASSET_GENERATION_BACKLOG.md` | 88 asset entries, 10 categories |
-| `ACCESSIBILITY.md` | WCAG 2.2 AA rules, verified contrast |
+| `src/` | React app: sections, UI primitives, data-driven content (`src/data/content`) |
+| `public/images/` | hero, track and support imagery |
 
-## Phases
+Context attributes: `data-surface="dark"`, `data-track="automobile|eee|civil"`, `data-status="open|closing|closed|review|selected|finalist|winner"`.
+
+## Status
 
 | # | Phase | Status |
 |---|---|---|
-| 1 | Define tokens | Done |
-| 2 | Document system | Done |
-| 3 | Catalogue assets | Done |
-| 4 | Generate assets (`assets/ASSET_GENERATION_BACKLOG.md`) | **Next** |
-| 5 | Build website against this system | Not started |
+| 1 | Design tokens and docs | Done |
+| 2 | Homepage (nav, hero, tracks, how it works, impact, support, final CTA, footer) | Built |
+| 3 | Other pages, routing, backend | Not started |
+
+No competition details are invented; links are route-ready placeholders.
 
 ## Open inputs from organisers
 

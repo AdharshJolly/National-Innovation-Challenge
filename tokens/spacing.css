@@ -1,4 +1,4 @@
-/* NIC Design System V1 — Spacing tokens. Base unit 4px. Usage: docs/SPACING_RADIUS_SHADOW.md */
+/* NIC Design System V1 — Spacing tokens. Base unit 4px. Usage: DESIGN_SYSTEM.md §4 */
 
 :root {
   --space-1: 0.25rem;   /*   4 — icon-to-text gap, hairline offsets */

@@ -1,5 +1,5 @@
 /* NIC Design System V1 — Typography role classes.
-   Thin, token-only utilities so every role has ONE definition. Spec: docs/TYPOGRAPHY.md */
+   Thin, token-only utilities so every role has ONE definition. Spec: DESIGN_SYSTEM.md §3 */
 
 .t-display { font: var(--fw-extrabold) var(--fs-display)/var(--lh-display) var(--font-display); letter-spacing: var(--ls-display); }
 .t-h1 { font: var(--fw-bold) var(--fs-h1)/var(--lh-h1) var(--font-display); letter-spacing: var(--ls-h1); }

@@ -1,4 +1,4 @@
-/* NIC Design System V1 — Typography tokens. Rationale: docs/TYPOGRAPHY.md
+/* NIC Design System V1 — Typography tokens. Rationale: DESIGN_SYSTEM.md §3
    Fonts are NOT bundled. Load Sora, Inter, JetBrains Mono (Google Fonts or
    self-hosted, display=swap). Fallback stacks keep layout acceptable without them. */
 

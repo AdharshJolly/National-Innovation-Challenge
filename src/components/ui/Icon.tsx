@@ -18,7 +18,7 @@ const map = {
 
 export type IconName = keyof typeof map;
 
-/** Single outline icon family (Lucide, 1.5px stroke) per icons/ICON_SYSTEM.md. */
+/** Single outline icon family (Lucide, 1.5px stroke) per DESIGN_SYSTEM.md §10. */
 export function Icon({ name, size = 20 }: { name: IconName; size?: number }) {
   const C = map[name];
   return <C size={size} strokeWidth={1.5} aria-hidden="true" focusable="false" />;

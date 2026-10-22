@@ -1,5 +1,5 @@
 /* NIC Design System V1 — Background treatments (CSS-only recipes, no image assets).
-   Spec & when-to-use: docs/BACKGROUNDS.md. Apply one class per section. */
+   Spec & when-to-use: DESIGN_SYSTEM.md §6. Apply one class per section. */
 
 :root {
   --grid-size: 48px;

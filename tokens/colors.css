@@ -1,6 +1,6 @@
 /* ==========================================================================
    NIC Design System V1 — Color tokens
-   Rationale and usage rules: docs/COLOR_SYSTEM.md
+   Rationale and usage rules: DESIGN_SYSTEM.md §2
    Layers:  1. primitives (raw brand values)  2. -ink / -tint derivatives
             3. semantic roles (use these in components)
    ========================================================================== */

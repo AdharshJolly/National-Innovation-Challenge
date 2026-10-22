@@ -1,5 +1,5 @@
 /* NIC Design System V1 — Component design tokens.
-   These are VALUES, not component implementations. Full spec: docs/COMPONENTS.md
+   These are VALUES, not component implementations. Full spec: DESIGN_SYSTEM.md §8
    Pattern: --{component}-{part}-{state}. Build components by consuming these only. */
 
 :root {

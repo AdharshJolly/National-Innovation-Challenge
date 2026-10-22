@@ -1,4 +1,4 @@
-/* NIC Design System V1 — Breakpoints & layout tokens. Spec: docs/GRID.md
+/* NIC Design System V1 — Breakpoints & layout tokens. Spec: DESIGN_SYSTEM.md §5
    CSS custom properties cannot be used inside @media queries; these tokens are
    for JS/documentation. Hard-code the same px values in media queries (mobile-first, min-width). */
 
