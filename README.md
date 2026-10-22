@@ -1,4 +1,4 @@
-# National Innovation Challenge — Phase 1 Homepage
+# National Innovation Challenge — Homepage
 
 Vite + React 18 + TypeScript (strict), built on the **NIC Design System V1** (direction: Innovation Spectrum).
 
@@ -30,13 +30,7 @@ Context attributes: `data-surface="dark"`, `data-track="automobile|eee|civil"`, 
 
 ## Status
 
-| # | Phase | Status |
-|---|---|---|
-| 1 | Design tokens and docs | Done |
-| 2 | Homepage (nav, hero, tracks, how it works, impact, support, final CTA, footer) | Built |
-| 3 | Other pages, routing, backend | Not started |
-
-No competition details are invented; links are route-ready placeholders.
+The homepage is built: nav, hero, tracks, how it works, impact, support, final CTA and footer. Other pages, routing and backend are not started. No competition details are invented; links are route-ready placeholders.
 
 ## Open inputs from organisers
 

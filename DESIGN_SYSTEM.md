@@ -480,7 +480,7 @@ Version: **V1.0**
 
 ## 13. Cinematic plan (future, not built)
 
-A planning idea for a later phase; nothing here exists. The site stays real HTML/CSS over stills and short clips, scroll-linked but never scroll-jacked, and every act must work as a static image plus text.
+A planning idea; nothing here exists. The site stays real HTML/CSS over stills and short clips, scroll-linked but never scroll-jacked, and every act must work as a static image plus text.
 
 Story arc: **See the problem → think differently → design → build → test → present → build what's next.** Eight acts: Enter, The Challenge, Three Engineering Worlds (Automobile → EEE → Civil), The Problem, Build, Test, Present, Build What's Next.
 
