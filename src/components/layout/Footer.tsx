@@ -35,7 +35,7 @@ export function Footer() {
         </div>
       </div>
       <div className="container footer__bottom t-caption">
-        <span>© {new Date().getFullYear()} National Innovation Challenge</span>
+        <span>© National Innovation Challenge</span>
       </div>
     </footer>
   );
