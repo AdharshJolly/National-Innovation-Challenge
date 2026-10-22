@@ -1,0 +1,56 @@
+/* NIC Design System V1 — Background treatments (CSS-only recipes, no image assets).
+   Spec & when-to-use: docs/BACKGROUNDS.md. Apply one class per section. */
+
+:root {
+  --grid-size: 48px;
+  --grid-line-light: rgb(23 21 31 / 0.045);
+  --grid-line-dark: rgb(255 255 255 / 0.06);
+}
+
+/* 1. Light Technical — Paper + extremely subtle grid, faded at edges */
+.bg-light-technical {
+  background-color: var(--nic-paper);
+  background-image:
+    linear-gradient(var(--grid-line-light) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line-light) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  color: var(--nic-graphite);
+}
+
+/* 2. Dark Technical — Deep Violet + subtle grid */
+.bg-dark-technical {
+  background-color: var(--nic-deep-violet);
+  background-image:
+    linear-gradient(var(--grid-line-dark) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line-dark) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  color: var(--nic-white);
+}
+
+/* 3. Spectrum — Deep Violet/Indigo + controlled blue/cyan glow (one lime hint max) */
+.bg-spectrum {
+  background-color: var(--nic-deep-violet);
+  background-image:
+    var(--glow-blue), var(--glow-cyan),
+    linear-gradient(180deg, var(--nic-deep-violet) 0%, #20104F 60%, var(--nic-indigo) 140%);
+  background-repeat: no-repeat;
+  background-size: 70% 90%, 45% 70%, 100% 100%;
+  background-position: 85% 10%, 15% 100%, 0 0;
+  color: var(--nic-white);
+}
+.bg-spectrum--grid {
+  background-image:
+    linear-gradient(var(--grid-line-dark) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line-dark) 1px, transparent 1px),
+    var(--glow-blue), var(--glow-cyan),
+    linear-gradient(180deg, var(--nic-deep-violet) 0%, #20104F 60%, var(--nic-indigo) 140%);
+  background-size: var(--grid-size) var(--grid-size), var(--grid-size) var(--grid-size), 70% 90%, 45% 70%, 100% 100%;
+  background-position: 0 0, 0 0, 85% 10%, 15% 100%, 0 0;
+}
+
+/* 4. Clean — flat, no texture */
+.bg-clean { background-color: var(--nic-paper); color: var(--nic-graphite); }
+.bg-clean--white { background-color: var(--nic-white); color: var(--nic-graphite); }
+
+/* Fade the grid out toward edges so it never reads as a hard pattern */
+.bg-grid-fade { mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 40%, transparent 100%); }

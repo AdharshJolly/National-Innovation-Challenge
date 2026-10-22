@@ -1,0 +1,99 @@
+/* NIC Design System V1 — Component design tokens.
+   These are VALUES, not component implementations. Full spec: docs/COMPONENTS.md
+   Pattern: --{component}-{part}-{state}. Build components by consuming these only. */
+
+:root {
+  /* ---------------- Buttons ---------------- */
+  --btn-height-sm: 36px;
+  --btn-height-md: 44px;   /* minimum touch target */
+  --btn-height-lg: 52px;
+  --btn-pad-x-sm: var(--space-4);
+  --btn-pad-x-md: var(--space-6);
+  --btn-pad-x-lg: var(--space-8);
+  --btn-gap: var(--space-2);
+  --btn-radius: var(--radius-button);
+  --btn-border-width: 1.5px;
+
+  /* primary */
+  --btn-primary-bg: var(--nic-electric-blue);
+  --btn-primary-fg: var(--nic-white);
+  --btn-primary-bg-hover: var(--nic-blue-hover);
+  --btn-primary-bg-active: var(--nic-blue-active);
+  /* secondary (outlined) */
+  --btn-secondary-bg: transparent;
+  --btn-secondary-fg: var(--nic-electric-blue);
+  --btn-secondary-border: var(--nic-electric-blue);
+  --btn-secondary-bg-hover: var(--nic-blue-tint);
+  --btn-secondary-bg-active: #E0E3FF;
+  /* ghost */
+  --btn-ghost-fg: var(--nic-graphite);
+  --btn-ghost-bg-hover: rgb(23 21 31 / 0.06);
+  --btn-ghost-bg-active: rgb(23 21 31 / 0.12);
+  /* dark */
+  --btn-dark-bg: var(--nic-deep-violet);
+  --btn-dark-fg: var(--nic-white);
+  --btn-dark-bg-hover: var(--nic-indigo);
+  --btn-dark-bg-active: #25225F;
+  /* accent (lime — use ≤1 per view; text is Graphite for contrast) */
+  --btn-accent-bg: var(--nic-lime);
+  --btn-accent-fg: var(--nic-graphite);
+  --btn-accent-bg-hover: #B4EC58;
+  --btn-accent-bg-active: #8FD21F;
+  /* destructive */
+  --btn-destructive-bg: var(--nic-error-strong);
+  --btn-destructive-fg: var(--nic-white);
+  --btn-destructive-bg-hover: #B91C1C;
+  --btn-destructive-bg-active: #991B1B;
+  /* disabled (all variants) */
+  --btn-disabled-bg: var(--color-disabled-bg);
+  --btn-disabled-fg: var(--color-disabled-text);
+
+  /* ---------------- Cards ---------------- */
+  --card-bg: var(--color-bg-surface);
+  --card-border: 1px solid var(--color-border);
+  --card-radius: var(--radius-card);
+  --card-padding: var(--card-pad);
+  --card-shadow: var(--shadow-none);
+  --card-shadow-hover: var(--shadow-elevated);
+  --card-elevated-shadow: var(--shadow-card);
+  --card-dark-bg: var(--nic-violet-raised);
+  --card-dark-border: 1px solid var(--nic-violet-line);
+  --card-track-bar-width: 4px;          /* left/top rule in track colour */
+  --card-problem-id-font: var(--font-mono);
+
+  /* ---------------- Badges ---------------- */
+  --badge-height: 24px;
+  --badge-pad-x: var(--space-3);
+  --badge-font-size: var(--fs-label);
+  --badge-font-weight: var(--fw-semibold);
+  --badge-radius: var(--radius-pill);
+  --badge-dot-size: 8px;
+  --badge-category-radius: var(--radius-sm);
+
+  /* ---------------- Inputs ---------------- */
+  --input-height: 48px;
+  --input-pad-x: var(--space-4);
+  --input-radius: var(--radius-input);
+  --input-bg: var(--nic-white);
+  --input-border: 1.5px solid var(--color-border-strong); /* 3.3:1 against Paper (WCAG 1.4.11) */
+  --input-border-hover: 1.5px solid var(--nic-slate);
+  --input-border-focus: 1.5px solid var(--nic-electric-blue);
+  --input-border-error: 1.5px solid var(--nic-error-ink);
+  --input-placeholder: var(--nic-slate);   /* 4.9:1 on white */
+  --input-disabled-bg: var(--color-disabled-bg);
+  --input-label-font-size: var(--fs-body-sm);
+  --input-help-font-size: var(--fs-caption);
+
+  /* ---------------- Navigation ---------------- */
+  --nav-height: 72px;
+  --nav-height-mobile: 60px;
+  --nav-light-bg: rgb(248 250 252 / 0.88);       /* Paper + backdrop-blur(12px) */
+  --nav-light-border: var(--nic-border);
+  --nav-dark-bg: rgb(26 8 48 / 0.82);            /* Deep Violet + backdrop-blur(12px) */
+  --nav-dark-border: var(--nic-violet-line);
+  --nav-link-fg: var(--nic-graphite);
+  --nav-link-fg-dark: var(--nic-mist);
+  --nav-link-active-indicator: 2px;              /* underline bar, Electric Blue / Cyan on dark */
+  --nav-drawer-bg: var(--nic-deep-violet);
+  --nav-drawer-width: min(88vw, 360px);
+}

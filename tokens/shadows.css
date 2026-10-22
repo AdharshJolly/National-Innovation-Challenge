@@ -1,0 +1,17 @@
+/* NIC Design System V1 — Shadow tokens. Soft, restrained; borders/contrast do the heavy lifting.
+   Shadows are tinted with Deep Violet (26 8 48), never pure black. */
+
+:root {
+  --shadow-none: none;
+  --shadow-subtle: 0 1px 2px rgb(26 8 48 / 0.06);
+  --shadow-card: 0 1px 2px rgb(26 8 48 / 0.05), 0 4px 12px rgb(26 8 48 / 0.06);
+  --shadow-elevated: 0 2px 4px rgb(26 8 48 / 0.06), 0 12px 28px rgb(26 8 48 / 0.12);
+  --shadow-modal: 0 8px 16px rgb(26 8 48 / 0.12), 0 32px 64px rgb(26 8 48 / 0.28);
+
+  /* Focus ring (box-shadow technique; keeps radius) */
+  --ring-focus: 0 0 0 2px var(--color-bg-page), 0 0 0 4px var(--color-focus-ring);
+
+  /* Glow — only on dark surfaces, only for primary/active emphasis */
+  --glow-primary: 0 0 0 1px rgb(79 70 229 / 0.6), 0 0 24px rgb(79 70 229 / 0.45);
+  --glow-cyan-soft: 0 0 20px rgb(6 182 212 / 0.35);
+}

@@ -1,0 +1,28 @@
+/* NIC Design System V1 — Gradient tokens. Rules: docs/COLOR_SYSTEM.md §Gradients */
+
+:root {
+  /* Innovation Flow — primary technological gradient */
+  --gradient-innovation-flow: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%);
+
+  /* Future Momentum — high-energy; SPARINGLY (≤1 per viewport) */
+  --gradient-future-momentum: linear-gradient(135deg, #4F46E5 0%, #06B6D4 55%, #A3E635 100%);
+
+  /* Deep Innovation — dark premium */
+  --gradient-deep-innovation: linear-gradient(160deg, #1A0830 0%, #4F46E5 100%);
+
+  /* Gradient TEXT on dark only (≥48px, one phrase per page). Blue end of
+     Innovation Flow fails on Violet, so text uses lighter stops. */
+  --gradient-text-on-dark: linear-gradient(90deg, #22D3EE 0%, #A5B4FC 100%);
+
+  /* Directional helpers (same stops, different axis) */
+  --gradient-innovation-flow-x: linear-gradient(90deg, #4F46E5, #06B6D4);
+  --gradient-future-momentum-x: linear-gradient(90deg, #4F46E5, #06B6D4 55%, #A3E635);
+
+  /* Glows for the Spectrum background — radial, low opacity, never full-bleed solid */
+  --glow-blue: radial-gradient(closest-side, rgb(79 70 229 / 0.55), transparent);
+  --glow-cyan: radial-gradient(closest-side, rgb(6 182 212 / 0.35), transparent);
+  --glow-lime: radial-gradient(closest-side, rgb(163 230 53 / 0.18), transparent);
+
+  /* Scrim for text over imagery (guarantees contrast) */
+  --scrim-dark: linear-gradient(180deg, rgb(26 8 48 / 0) 0%, rgb(26 8 48 / 0.85) 100%);
+}

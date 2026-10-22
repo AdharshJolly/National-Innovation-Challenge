@@ -1,0 +1,64 @@
+/* NIC Design System V1 — Typography tokens. Rationale: docs/TYPOGRAPHY.md
+   Fonts are NOT bundled. Load Sora, Inter, JetBrains Mono (Google Fonts or
+   self-hosted, display=swap). Fallback stacks keep layout acceptable without them. */
+
+:root {
+  /* Families */
+  --font-display: "Sora", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* Weights */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  /* Scale — fluid (mobile → desktop) via clamp(min, preferred, max) */
+  --fs-display: clamp(2.75rem, 1.6rem + 5.2vw, 5.5rem);      /* 44 → 88 */
+  --fs-h1: clamp(2.25rem, 1.5rem + 3.4vw, 4rem);             /* 36 → 64 */
+  --fs-h2: clamp(1.75rem, 1.3rem + 2vw, 2.75rem);            /* 28 → 44 */
+  --fs-h3: clamp(1.375rem, 1.15rem + 1vw, 1.875rem);         /* 22 → 30 */
+  --fs-h4: clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);       /* 18 → 22 */
+  --fs-body-lg: clamp(1.125rem, 1.08rem + 0.2vw, 1.25rem);   /* 18 → 20 */
+  --fs-body: 1rem;                                            /* 16 */
+  --fs-body-sm: 0.875rem;                                     /* 14 */
+  --fs-caption: 0.8125rem;                                    /* 13 */
+  --fs-label: 0.75rem;                                        /* 12 */
+  --fs-button: 0.9375rem;                                     /* 15 */
+  --fs-nav: 0.9375rem;                                        /* 15 */
+
+  /* Line heights */
+  --lh-display: 1.0;
+  --lh-h1: 1.05;
+  --lh-h2: 1.12;
+  --lh-h3: 1.2;
+  --lh-h4: 1.3;
+  --lh-body-lg: 1.55;
+  --lh-body: 1.6;
+  --lh-body-sm: 1.55;
+  --lh-caption: 1.45;
+  --lh-label: 1.2;
+  --lh-button: 1.0;
+  --lh-nav: 1.2;
+
+  /* Letter spacing */
+  --ls-display: -0.035em;
+  --ls-h1: -0.03em;
+  --ls-h2: -0.025em;
+  --ls-h3: -0.02em;
+  --ls-h4: -0.01em;
+  --ls-body: 0;
+  --ls-label: 0.08em;     /* uppercase micro-labels */
+  --ls-button: 0.005em;
+  --ls-nav: 0.005em;
+
+  /* Role composites (family + weight + size + line-height + tracking) live in
+     styles/typography.css as .t-* classes — one definition per role. */
+
+  /* Measure (max line length) */
+  --measure-prose: 68ch;
+  --measure-narrow: 52ch;
+  --measure-heading: 20ch;
+}

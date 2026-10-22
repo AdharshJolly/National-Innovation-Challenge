@@ -1,0 +1,8 @@
+/* NIC Design System V1 — single CSS entry point.
+   Website: `@import "nic-design-system/nic.css";` (or link this file) and you have
+   every token + the type-role and background utilities. Nothing else is emitted:
+   no resets, no layout, no components. */
+@import "./tokens/index.css";
+@import "./styles/typography.css";
+@import "./styles/backgrounds.css";
+@import "./styles/base.css";

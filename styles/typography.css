@@ -1,0 +1,24 @@
+/* NIC Design System V1 — Typography role classes.
+   Thin, token-only utilities so every role has ONE definition. Spec: docs/TYPOGRAPHY.md */
+
+.t-display { font: var(--fw-extrabold) var(--fs-display)/var(--lh-display) var(--font-display); letter-spacing: var(--ls-display); }
+.t-h1 { font: var(--fw-bold) var(--fs-h1)/var(--lh-h1) var(--font-display); letter-spacing: var(--ls-h1); }
+.t-h2 { font: var(--fw-bold) var(--fs-h2)/var(--lh-h2) var(--font-display); letter-spacing: var(--ls-h2); }
+.t-h3 { font: var(--fw-semibold) var(--fs-h3)/var(--lh-h3) var(--font-display); letter-spacing: var(--ls-h3); }
+.t-h4 { font: var(--fw-semibold) var(--fs-h4)/var(--lh-h4) var(--font-display); letter-spacing: var(--ls-h4); }
+.t-body-lg { font: var(--fw-regular) var(--fs-body-lg)/var(--lh-body-lg) var(--font-body); }
+.t-body { font: var(--fw-regular) var(--fs-body)/var(--lh-body) var(--font-body); }
+.t-body-sm { font: var(--fw-regular) var(--fs-body-sm)/var(--lh-body-sm) var(--font-body); }
+.t-caption { font: var(--fw-regular) var(--fs-caption)/var(--lh-caption) var(--font-body); color: var(--color-text-muted); }
+.t-label {
+  font: var(--fw-semibold) var(--fs-label)/var(--lh-label) var(--font-mono);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+}
+.t-button { font: var(--fw-semibold) var(--fs-button)/var(--lh-button) var(--font-body); letter-spacing: var(--ls-button); }
+.t-nav { font: var(--fw-medium) var(--fs-nav)/var(--lh-nav) var(--font-body); letter-spacing: var(--ls-nav); }
+.t-mono { font-family: var(--font-mono); font-feature-settings: "zero" 1; }
+
+.t-prose { max-width: var(--measure-prose); }
+.t-balance { text-wrap: balance; }   /* headings */
+.t-pretty { text-wrap: pretty; }     /* paragraphs */

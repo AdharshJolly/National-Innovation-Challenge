@@ -1,0 +1,17 @@
+/* NIC Design System V1 — Radius tokens. Deliberately tighter than typical SaaS. */
+
+:root {
+  --radius-none: 0;
+  --radius-sm: 4px;     /* tags, small chips, checkboxes, code */
+  --radius-md: 8px;     /* buttons, inputs, nav items */
+  --radius-lg: 12px;    /* cards, panels, dropdowns */
+  --radius-xl: 20px;    /* hero panels, large feature surfaces, modals */
+  --radius-pill: 999px; /* badges, status pills, toggles */
+
+  /* Component aliases */
+  --radius-button: var(--radius-md);
+  --radius-input: var(--radius-md);
+  --radius-card: var(--radius-lg);
+  --radius-modal: var(--radius-xl);
+  --radius-badge: var(--radius-pill);
+}

@@ -1,0 +1,54 @@
+/* NIC Design System V1 — Motion tokens. Philosophy: motion/motion-guidelines.md
+   precise + energetic + technical. No bounce, no elastic, no spin. */
+
+:root {
+  /* Durations */
+  --duration-instant: 80ms;
+  --duration-micro: 120ms;     /* press, toggle, color change */
+  --duration-standard: 200ms;  /* hover, focus, dropdown */
+  --duration-emphasis: 360ms;  /* card lift, modal in, tab change */
+  --duration-reveal: 560ms;    /* scroll reveal */
+  --duration-page: 400ms;      /* route transition */
+  --duration-draw: 900ms;      /* technical-line drawing */
+  --duration-gradient: 14s;    /* ambient gradient drift */
+
+  /* Easings — all monotonic, none overshoot */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);       /* default: quick start, soft landing */
+  --ease-emphasis: cubic-bezier(0.16, 1, 0.3, 1);    /* expo-out: reveals, entrances */
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);           /* leaving the screen */
+  --ease-linear: linear;                             /* line draw, gradient drift only */
+
+  /* Composite transitions */
+  --transition-micro: var(--duration-micro) var(--ease-standard);
+  --transition-standard: var(--duration-standard) var(--ease-standard);
+  --transition-emphasis: var(--duration-emphasis) var(--ease-emphasis);
+
+  /* Distances */
+  --move-hover: -2px;     /* card/button lift */
+  --move-reveal: 8px;     /* reveal starts 8px below */
+  --move-small: 4px;      /* arrow nudge, dropdown offset */
+  --scale-press: 0.98;
+  --scale-hover: 1.02;    /* imagery only, never text */
+
+  /* Stagger */
+  --stagger-step: 60ms;
+  --stagger-max: 6;       /* never stagger more than 6 items */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-micro: 0.01ms;
+    --duration-standard: 0.01ms;
+    --duration-emphasis: 0.01ms;
+    --duration-reveal: 0.01ms;
+    --duration-page: 0.01ms;
+    --duration-draw: 0.01ms;
+    --duration-gradient: 0s;
+    --move-hover: 0;
+    --move-reveal: 0;
+    --move-small: 0;
+    --scale-press: 1;
+    --scale-hover: 1;
+    --stagger-step: 0ms;
+  }
+}

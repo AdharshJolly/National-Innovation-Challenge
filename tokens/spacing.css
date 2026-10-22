@@ -1,0 +1,35 @@
+/* NIC Design System V1 — Spacing tokens. Base unit 4px. Usage: docs/SPACING_RADIUS_SHADOW.md */
+
+:root {
+  --space-1: 0.25rem;   /*   4 — icon-to-text gap, hairline offsets */
+  --space-2: 0.5rem;    /*   8 — tight inline gaps, badge padding-y */
+  --space-3: 0.75rem;   /*  12 — control padding-y, small stack gap */
+  --space-4: 1rem;      /*  16 — default gap, card padding (mobile), gutter (mobile) */
+  --space-5: 1.25rem;   /*  20 — form field gap */
+  --space-6: 1.5rem;    /*  24 — card padding, gutter (tablet) */
+  --space-8: 2rem;      /*  32 — card padding (desktop), gutter (desktop), group gap */
+  --space-10: 2.5rem;   /*  40 — heading → content gap */
+  --space-12: 3rem;     /*  48 — sub-section gap */
+  --space-16: 4rem;     /*  64 — section padding (mobile) */
+  --space-20: 5rem;     /*  80 — section padding (tablet) */
+  --space-24: 6rem;     /*  96 — section padding (desktop) */
+  --space-30: 7.5rem;   /* 120 — hero/finale padding (large desktop) */
+
+  /* Semantic aliases */
+  --gutter: var(--space-4);
+  --section-y: var(--space-16);
+  --card-pad: var(--space-6);
+  --stack-tight: var(--space-2);
+  --stack-default: var(--space-4);
+  --stack-loose: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  :root { --gutter: var(--space-6); --section-y: var(--space-20); }
+}
+@media (min-width: 1024px) {
+  :root { --gutter: var(--space-8); --section-y: var(--space-24); --card-pad: var(--space-8); }
+}
+@media (min-width: 1440px) {
+  :root { --section-y: var(--space-30); }
+}

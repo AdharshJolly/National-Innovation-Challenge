@@ -1,0 +1,207 @@
+/* ==========================================================================
+   NIC Design System V1 — Color tokens
+   Rationale and usage rules: docs/COLOR_SYSTEM.md
+   Layers:  1. primitives (raw brand values)  2. -ink / -tint derivatives
+            3. semantic roles (use these in components)
+   ========================================================================== */
+
+:root {
+  /* ---- 1. PRIMITIVES — authoritative palette (do not edit values) ------- */
+
+  /* Brand foundations */
+  --nic-deep-violet: #1A0830;
+  --nic-indigo: #312E81;
+
+  /* Primary accents */
+  --nic-electric-blue: #4F46E5;
+  --nic-cyan: #06B6D4;
+  --nic-lime: #A3E635;
+
+  /* Secondary energy accent */
+  --nic-orange: #F97316;
+
+  /* Neutrals */
+  --nic-paper: #F8FAFC;
+  --nic-white: #FFFFFF;
+  --nic-graphite: #17151F;
+  --nic-slate: #687280;
+  --nic-border: #D9DCE5;
+
+  /* Engineering tracks */
+  --nic-automobile: #F43F5E;
+  --nic-eee: #06B6D4;
+  --nic-civil: #22C55E;
+
+  /* Semantic */
+  --nic-success: #22C55E;
+  --nic-warning: #F59E0B;
+  --nic-error: #EF4444;
+  --nic-info: #3B82F6;
+
+  /* Competition status */
+  --nic-status-open: #22C55E;
+  --nic-status-closing: #F59E0B;
+  --nic-status-closed: #64748B;
+  --nic-status-review: #4F46E5;
+  --nic-status-selected: #06B6D4;
+  --nic-status-finalist: #8B5CF6;
+  --nic-status-winner: #FACC15;
+
+  /* Award */
+  --nic-gold: #FACC15;
+
+  /* ---- 2. DERIVATIVES — added by the design system for accessibility ---- */
+  /* "-ink" = darkened variant that passes 4.5:1 as TEXT/ICON on Paper/White.
+     Raw accents (cyan, lime, orange, gold, green, amber) FAIL as text on light
+     surfaces. On light backgrounds always use -ink for text; use the raw
+     colour for fills, dots, borders and large graphics.                    */
+  --nic-blue-hover: #4338CA;      /* Electric Blue hover/pressed fill (white text 7.9:1) */
+  --nic-blue-active: #3730A3;     /* Electric Blue active fill */
+  --nic-cyan-ink: #0E7490;        /* 5.4:1 on white */
+  --nic-lime-ink: #3F6212;        /* 7.1:1 on white */
+  --nic-orange-ink: #C2410C;      /* 5.2:1 on white */
+  --nic-automobile-ink: #BE123C;  /* 6.3:1 on white */
+  --nic-eee-ink: #0E7490;         /* same as cyan-ink */
+  --nic-civil-ink: #15803D;       /* 5.0:1 on white */
+  --nic-success-ink: #15803D;
+  --nic-warning-ink: #B45309;     /* 5.0:1 on white */
+  --nic-error-ink: #B91C1C;       /* 6.5:1 on white */
+  --nic-error-strong: #DC2626;    /* destructive button fill (white text 4.8:1) */
+  --nic-info-ink: #1D4ED8;        /* 6.7:1 on white */
+  --nic-finalist-ink: #6D28D9;    /* 7.1:1 on white */
+  --nic-closed-ink: #475569;      /* 7.6:1 on white */
+  --nic-gold-ink: #854D0E;        /* 6.9:1 on white */
+
+  /* Text-on-dark helpers */
+  --nic-slate-on-dark: #A7B0BE;   /* 8.6:1 on Deep Violet — secondary text on dark */
+  --nic-mist: #C4C9D4;            /* 11.3:1 on Deep Violet — body text on dark */
+  --nic-cyan-bright: #22D3EE;     /* 10.4:1 on Deep Violet — cyan text/links on dark */
+
+  /* Tints (12% on light) — backgrounds for badges/notifications */
+  --nic-blue-tint: #EEF0FF;
+  --nic-cyan-tint: #E0F7FB;
+  --nic-lime-tint: #F0FBD9;
+  --nic-orange-tint: #FFF1E6;
+  --nic-automobile-tint: #FFE8EC;
+  --nic-civil-tint: #E3F8EA;
+  --nic-success-tint: #E3F8EA;
+  --nic-warning-tint: #FEF3DC;
+  --nic-error-tint: #FDE8E8;
+  --nic-info-tint: #E6F0FF;
+  --nic-finalist-tint: #F0EAFE;
+  --nic-closed-tint: #EEF1F5;
+  --nic-gold-tint: #FEF8D3;
+
+  /* Dark-surface layers (stack on Deep Violet) */
+  --nic-violet-raised: #241040;   /* cards on Deep Violet */
+  --nic-violet-line: rgb(255 255 255 / 0.12);   /* borders on dark */
+  --nic-violet-line-strong: rgb(255 255 255 / 0.24);
+
+  /* ---- 3. SEMANTIC ROLES — components consume these --------------------- */
+
+  /* Surfaces */
+  --color-bg-page: var(--nic-paper);
+  --color-bg-surface: var(--nic-white);
+  --color-bg-inverse: var(--nic-deep-violet);
+  --color-bg-inverse-raised: var(--nic-violet-raised);
+  --color-bg-brand: var(--nic-indigo);
+
+  /* Text */
+  --color-text: var(--nic-graphite);
+  --color-text-muted: var(--nic-slate);
+  --color-text-inverse: var(--nic-white);
+  --color-text-inverse-muted: var(--nic-slate-on-dark);
+  --color-text-link: var(--nic-electric-blue);
+  --color-text-link-inverse: var(--nic-cyan-bright);
+
+  /* Lines */
+  --color-border: var(--nic-border);
+  --color-border-strong: #838B9C;   /* 3.3:1 on Paper — form-control borders (WCAG 1.4.11) */
+  --color-border-inverse: var(--nic-violet-line);
+
+  /* Interactive */
+  --color-primary: var(--nic-electric-blue);
+  --color-primary-hover: var(--nic-blue-hover);
+  --color-primary-active: var(--nic-blue-active);
+  --color-on-primary: var(--nic-white);
+  --color-focus-ring: var(--nic-electric-blue);
+  --color-focus-ring-inverse: var(--nic-cyan);
+  --color-selection: rgb(79 70 229 / 0.2);
+
+  /* Disabled */
+  --color-disabled-bg: #EEF0F5;
+  --color-disabled-text: #8C93A3;
+  --color-disabled-border: var(--nic-border);
+}
+
+/* Track colour sets — apply with data-track="automobile|eee|civil" on any
+   container; children read --track-* so components stay track-agnostic.      */
+[data-track="automobile"] {
+  --track-color: var(--nic-automobile);
+  --track-ink: var(--nic-automobile-ink);
+  --track-tint: var(--nic-automobile-tint);
+}
+[data-track="eee"] {
+  --track-color: var(--nic-eee);
+  --track-ink: var(--nic-eee-ink);
+  --track-tint: var(--nic-cyan-tint);
+}
+[data-track="civil"] {
+  --track-color: var(--nic-civil);
+  --track-ink: var(--nic-civil-ink);
+  --track-tint: var(--nic-civil-tint);
+}
+
+/* Status colour sets — data-status="open|closing|closed|review|selected|finalist|winner"
+   --status-color: fill/dot/border.  --status-ink: text on light.  --status-tint: bg on light. */
+[data-status="open"] {
+  --status-color: var(--nic-status-open);
+  --status-ink: var(--nic-success-ink);
+  --status-tint: var(--nic-success-tint);
+}
+[data-status="closing"] {
+  --status-color: var(--nic-status-closing);
+  --status-ink: var(--nic-warning-ink);
+  --status-tint: var(--nic-warning-tint);
+}
+[data-status="closed"] {
+  --status-color: var(--nic-status-closed);
+  --status-ink: var(--nic-closed-ink);
+  --status-tint: var(--nic-closed-tint);
+}
+[data-status="review"] {
+  --status-color: var(--nic-status-review);
+  --status-ink: var(--nic-electric-blue);
+  --status-tint: var(--nic-blue-tint);
+}
+[data-status="selected"] {
+  --status-color: var(--nic-status-selected);
+  --status-ink: var(--nic-cyan-ink);
+  --status-tint: var(--nic-cyan-tint);
+}
+[data-status="finalist"] {
+  --status-color: var(--nic-status-finalist);
+  --status-ink: var(--nic-finalist-ink);
+  --status-tint: var(--nic-finalist-tint);
+}
+[data-status="winner"] {
+  --status-color: var(--nic-status-winner);
+  --status-ink: var(--nic-gold-ink);
+  --status-tint: var(--nic-gold-tint);
+}
+
+/* Inverse (dark) context: swap semantic roles. Add data-surface="dark" to a section. */
+[data-surface="dark"] {
+  --color-bg-page: var(--nic-deep-violet);
+  --color-bg-surface: var(--nic-violet-raised);
+  --color-text: var(--nic-white);
+  --color-text-muted: var(--nic-slate-on-dark);
+  --color-text-link: var(--nic-cyan-bright);
+  --color-border: var(--nic-violet-line);
+  --color-border-strong: var(--nic-violet-line-strong);
+  --color-focus-ring: var(--nic-cyan);
+  --track-ink: var(--track-color);
+  --status-ink: var(--status-color);
+  --status-tint: rgb(255 255 255 / 0.08);
+  color: var(--color-text);
+}
