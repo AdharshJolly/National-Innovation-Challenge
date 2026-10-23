@@ -35,7 +35,7 @@ There is no router library. `src/App.tsx` reads `window.location.pathname`:
 
 Any other path renders the home page. Nav links use plain `<a href>` tags, and a hash-scroll effect in `App.tsx` handles anchors such as `/#contact` after the page renders.
 
-Because `/problems` is a real path, the host must serve `index.html` for unknown paths (see Deployment). Without that, opening `/problems` directly or refreshing on it returns a 404.
+`npm run build` also writes `dist/problems/index.html` and `dist/404.html` (see `staticRoutes` in `vite.config.ts`), so `/problems` loads on a plain static host with no rewrite rule. A new route needs its name added to `appRoutes` in that file. A SPA fallback to `index.html` (see Deployment) is still the cleaner setup.
 
 ## Project structure
 
