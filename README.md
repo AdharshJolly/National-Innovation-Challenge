@@ -30,7 +30,7 @@ There is no router library. `src/App.tsx` reads `window.location.pathname`:
 
 | Path | Page |
 |---|---|
-| `/` | Home: hero, tracks, prize pool, how it works, impact, support, contact, final call to action |
+| `/` | Home: hero, tracks, prize pool, how it works, impact, support, sponsors and partners, contact, final call to action |
 | `/problems` | Problem statements, grouped by track, each with a full-brief modal |
 
 Any other path renders the home page. Nav links use plain `<a href>` tags, and a hash-scroll effect in `App.tsx` handles anchors such as `/#contact` after the page renders.
@@ -43,7 +43,7 @@ Because `/problems` is a real path, the host must serve `index.html` for unknown
 |---|---|
 | `src/App.tsx` | Page selection, hash scrolling |
 | `src/main.tsx` | Entry point, imports global CSS |
-| `src/components/` | One folder per section: `hero`, `tracks`, `journey`, `impact`, `support`, `contact`, `cta`, `problems`, plus `layout` (navbar, footer), `ui` (button, icon, logo, reveal, section heading), `visuals`, `effects` |
+| `src/components/` | One folder per section: `hero`, `tracks`, `journey`, `impact`, `support`, `partners`, `contact`, `cta`, `problems`, plus `layout` (navbar, footer), `ui` (button, icon, logo, reveal, section heading), `visuals`, `effects` |
 | `src/data/content.ts` | Site copy: nav links, routes, tracks, journey steps, support items, coordinators |
 | `src/data/problems.ts` | Problem statements and per-track event details |
 | `src/hooks/` | `useReveal` (scroll reveal), `useScrolled` (navbar state) |
@@ -163,7 +163,7 @@ GitHub Pages has no rewrite rules, so direct loads of `/problems` would 404. Eit
 
 ### Checking a deployment
 
-1. Open the home page and confirm both logos show in the navbar.
+1. Open the home page and confirm the CHRIST logo shows in the navbar and the C-DAC logo shows in the Sponsors and Partners section.
 2. Open `/problems` directly in a new tab. It must load, not 404.
 3. Refresh on `/problems`. It must still load.
 4. Click "Support" in the navbar. It must scroll to the contact section.
