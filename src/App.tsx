@@ -8,6 +8,7 @@ import { PrizeSection } from "./components/prizes/PrizeSection";
 import { HowItWorks } from "./components/journey/HowItWorks";
 import { ImpactSection } from "./components/impact/ImpactSection";
 import { SupportSection } from "./components/support/SupportSection";
+import { PartnersSection } from "./components/partners/PartnersSection";
 import { ContactSection } from "./components/contact/ContactSection";
 import { FinalCTA } from "./components/cta/FinalCTA";
 import { tracks } from "./data/content";
@@ -21,6 +22,7 @@ function Home() {
       <HowItWorks />
       <ImpactSection />
       <SupportSection />
+      <PartnersSection />
       <ContactSection />
       <FinalCTA />
     </>

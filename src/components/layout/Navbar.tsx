@@ -3,7 +3,7 @@ import { navLinks } from "../../data/content";
 import { useScrolled } from "../../hooks/useScrolled";
 import { Button } from "../ui/Button";
 import { Icon } from "../ui/Icon";
-import { CdacLogo, Logo } from "../ui/Logo";
+import { Logo } from "../ui/Logo";
 
 export function Navbar({ solid = false }: { solid?: boolean }) {
   const scrolled = useScrolled();
@@ -23,8 +23,6 @@ export function Navbar({ solid = false }: { solid?: boolean }) {
           <a href="/" className="nav__logo" aria-label="National Innovation Challenge, home">
             <Logo />
           </a>
-          <span className="nav__brand-divider" aria-hidden="true" />
-          <CdacLogo />
         </div>
 
         <nav className="nav__links" aria-label="Primary">

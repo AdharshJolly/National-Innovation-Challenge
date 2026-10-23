@@ -62,7 +62,8 @@ Most changes need no component edits.
 - **Coordinators:** edit the `coordinators` array in `src/data/content.ts` (role, name, email, phone). A missing field renders "To be announced".
 - **Nav links:** `navLinks` in `src/data/content.ts`. Route constants are in `routes` in the same file.
 - **Problem statements:** `src/data/problems.ts`. Add only what the organiser documents state; leave unknown fields out.
-- **Logos:** replace files in `public/images/`. The C-DAC logo is a single-colour SVG shown white on the dark navbar through a CSS filter (`.logo--cdac` in `src/styles/site.css`). The logo components are in `src/components/ui/Logo.tsx`.
+- **Logos:** replace files in `public/images/`. The CHRIST logo component is in `src/components/ui/Logo.tsx`.
+- **Sponsors and partners:** add an entry to `partners` in `src/data/content.ts` (name, logo path in `public/images/`, size, optional `tier` and link). Entries with the same `tier` text share a labelled row, so "Sponsors" or "Supported by" rows appear by adding entries with that tier. Use a dark logo on a transparent background; tiles are white.
 
 ### Opening registration
 
