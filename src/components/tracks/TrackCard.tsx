@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { prizePool } from "../../data/content";
 import type { Track } from "../../data/content";
 import PixelSwap from "../effects/PixelSwap";
 import { Icon } from "../ui/Icon";
@@ -51,6 +52,11 @@ export function TrackCard({ track }: { track: Track }) {
         </h3>
         <p className="track-card__tagline">{track.tagline}</p>
         <p className="t-body-sm track-card__text">{track.descriptor}</p>
+        <p className="track-card__prize">
+          <span className="track-card__prize-icon"><Icon name="trophy" size={18} /></span>
+          <span className="t-label">Prize pool</span>
+          <strong>{prizePool.total}</strong>
+        </p>
         <span className="track-card__cta" aria-hidden="true">
           Explore track <Icon name="arrow" size={18} />
         </span>

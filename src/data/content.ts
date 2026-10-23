@@ -26,6 +26,16 @@ export const heroStats = [
   { icon: "recognition", value: "National", label: "Recognition" },
 ] as const;
 
+/** Same prize pool for every track. */
+export const prizePool = {
+  total: "₹1,00,000",
+  places: [
+    { place: "1st", amount: "₹50,000" },
+    { place: "2nd", amount: "₹30,000" },
+    { place: "3rd", amount: "₹20,000" },
+  ],
+} as const;
+
 export interface Track {
   id: TrackId;
   number: string;
@@ -61,12 +71,12 @@ export const tracks: Track[] = [
   {
     id: "civil",
     number: "03",
-    title: "InfraHack",
-    discipline: "InfraHack",
+    title: "Buildathon",
+    discipline: "Buildathon",
     tagline: "Build. Simulate. Solve.",
     descriptor: "Six real-world problems across monitoring, sustainability and geospatial analysis.",
     image: "/images/track-civil.png",
-    href: "/problems#infrahack",
+    href: "/problems#buildathon",
   },
 ];
 
@@ -81,9 +91,8 @@ export const journeySteps = [
 
 export const supportItems = [
   { icon: "hardware", title: "Hardware", text: "Access to hardware boards and components for prototype development." },
-  { icon: "mentorship", title: "Mentorship", text: "Guidance from experts throughout the development journey." },
-  { icon: "prototype", title: "Prototype Support", text: "Support for transforming ideas into working solutions." },
-  { icon: "finale", title: "Grand Finale", text: "Opportunity to showcase your prototype at the national finale." },
+  { icon: "mentorship", title: "Mentorship and Prototype Development", text: "Guidance from experts throughout the development journey for transforming ideas into working solutions." },
+  { icon: "finale", title: "Grand Finale", text: "Opportunity to showcase your prototype at the national finale at CHRIST (Deemed to be University), Bangalore Kengeri Campus." },
 ] as const;
 
 export interface Coordinator {
@@ -96,20 +105,14 @@ export interface Coordinator {
 export const coordinators: Coordinator[] = [
   {
     role: "Faculty Coordinator",
-    name: "Dr Haneesh K M",
+    name: "Prof. Haneesh K M",
     email: "haneesh.km@christuniversity.in",
     phone: "+919731121921",
   },
   {
     role: "Student Coordinator",
-    name: "Annmarie Vinish Kallingal",
+    name: "Annmarie Vinish",
     email: "annmarie.vinish@btech.christuniversity.in",
     phone: "+918921323033",
-  },
-  {
-    role: "Student Coordinator",
-    name: "Rebecca Lenin Koshy",
-    email: "rebecca.lenin@btech.christuniversity.in",
-    phone: "+916356117125",
   },
 ];

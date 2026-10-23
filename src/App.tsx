@@ -4,6 +4,7 @@ import { Navbar } from "./components/layout/Navbar";
 import { HeroSection } from "./components/hero/HeroSection";
 import { TrackSection } from "./components/tracks/TrackSection";
 import { ProblemsIntro, TrackProblems } from "./components/problems/ProblemsSection";
+import { PrizeSection } from "./components/prizes/PrizeSection";
 import { HowItWorks } from "./components/journey/HowItWorks";
 import { ImpactSection } from "./components/impact/ImpactSection";
 import { SupportSection } from "./components/support/SupportSection";
@@ -16,6 +17,7 @@ function Home() {
     <>
       <HeroSection />
       <TrackSection />
+      <PrizeSection />
       <HowItWorks />
       <ImpactSection />
       <SupportSection />

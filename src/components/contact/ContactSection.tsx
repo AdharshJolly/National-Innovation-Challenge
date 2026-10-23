@@ -8,7 +8,7 @@ const TBA = "To be announced";
 
 function initials(name?: string) {
   if (!name) return "NIC";
-  const parts = name.replace(/^Dr\.?\s+/i, "").split(/\s+/).filter(Boolean);
+  const parts = name.replace(/^(Dr|Prof)\.?\s+/i, "").split(/\s+/).filter(Boolean);
   return ((parts[0]?.[0] ?? "") + (parts.length > 1 ? parts[parts.length - 1][0] : "")).toUpperCase();
 }
 
@@ -47,7 +47,7 @@ function Person({ c, featured = false }: { c: Coordinator; featured?: boolean })
         <span className="contact-person__mono" aria-hidden="true">{initials(c.name)}</span>
         <div>
           <p className="t-label contact-person__role">{c.role}</p>
-          <h3 className={`${featured ? "t-h2" : "t-h3"} contact-person__name`}>{c.name ?? TBA}</h3>
+          <h3 className="t-h2 contact-person__name">{c.name ?? TBA}</h3>
         </div>
       </div>
       <dl className="contact-person__lines">

@@ -1,5 +1,6 @@
 import { tracks } from "../../data/content";
 import { problemStatements, trackEvents } from "../../data/problems";
+import { PrizePodium } from "../prizes/PrizePodium";
 import { Reveal } from "../ui/Reveal";
 import { SectionHeading } from "../ui/SectionHeading";
 import { ProblemCard } from "./ProblemCard";
@@ -53,6 +54,8 @@ export function TrackProblems({ trackId }: { trackId: (typeof tracks)[number]["i
             </div>
           </dl>
         </div>
+
+        <PrizePodium compact label={`${event.name} prize pool`} />
 
         <ul className="problem-grid">
           {items.map((p, i) => (

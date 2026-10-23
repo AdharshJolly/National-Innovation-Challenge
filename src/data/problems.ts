@@ -44,7 +44,7 @@ export const trackEvents: TrackEvent[] = [
       "Choose one of five problem statements; 3–4 hours.",
       "Present as a concept, model or prototype; a simple working model is encouraged.",
       "Explain innovation, working principle, feasibility, estimated cost and expected benefits.",
-      "Certificates for all participants. Prizes, registration link, date and venue to be announced.",
+      "Certificates for all participants. Registration link, date and venue to be announced.",
     ],
     judging: [
       { label: "Problem clarity" },
@@ -80,7 +80,7 @@ export const trackEvents: TrackEvent[] = [
   },
   {
     id: "civil",
-    name: "InfraHack",
+    name: "Buildathon",
     tagline: "Build. Simulate. Solve.",
     theme: "Three themes, six real-world problem statements",
     eligibility: "Grade 11 & 12",
@@ -96,35 +96,35 @@ export const problemStatements: ProblemStatement[] = [
     id: "ah-01", track: "automobile", number: "01",
     title: "Energy-Efficient Electric Mobility & Battery Range",
     problem: "Electric vehicles have a limited driving range because batteries store a finite amount of energy. Losses from weight, friction, road conditions and inefficient operation reduce the distance further.",
-    challenge: "Develop an affordable, practical and innovative solution that improves energy utilisation and increases the travelling distance of a miniature electric vehicle.",
+    challenge: "Increase the travelling distance of a miniature electric vehicle with an affordable, practical and innovative solution that improves energy utilisation.",
     explore: ["Weight reduction", "Low-friction drive", "Efficient motor control", "Smart energy management"],
   },
   {
     id: "ah-02", track: "automobile", number: "02",
     title: "Smart Collision Detection & Accident Prevention",
     problem: "Pedestrians, stationary objects and sudden obstacles cause accidents when a driver has too little time to react, especially on crowded roads, in school zones and in poorly visible areas.",
-    challenge: "Develop a low-cost, reliable solution that identifies potential obstacles, alerts the driver or improves vehicle response to reduce the likelihood of collisions.",
+    challenge: "Build a low-cost, reliable solution that identifies potential obstacles, alerts the driver or improves vehicle response to reduce the likelihood of collisions.",
     explore: ["Obstacle sensing", "Driver alerts", "Automatic braking response", "Low-visibility safety"],
   },
   {
     id: "ah-03", track: "automobile", number: "03",
     title: "Aerodynamic Design for Improved Vehicle Efficiency",
     problem: "Air resistance rises significantly with speed. A poor vehicle shape increases the energy needed for travel and reduces fuel economy or electric range.",
-    challenge: "Develop an innovative vehicle body concept or working model that minimises aerodynamic resistance while keeping practical vehicle functionality.",
+    challenge: "Design an innovative vehicle body concept or working model that minimises aerodynamic resistance while keeping practical vehicle functionality.",
     explore: ["Streamlined body shape", "Reduced frontal area", "Airflow management", "Drag testing"],
   },
   {
     id: "ah-04", track: "automobile", number: "04",
     title: "Vehicle Stability & Comfort on Uneven Roads",
     problem: "Potholes, speed breakers and damaged roads cause repeated shocks and vibrations that affect passenger comfort, stability and component life, and make steering harder.",
-    challenge: "Develop a simple, economical and effective solution that reduces vibrations and improves stability, safety and ride comfort of a miniature vehicle on uneven surfaces.",
+    challenge: "Propose a simple, economical and effective solution that reduces vibrations and improves stability, safety and ride comfort of a miniature vehicle on uneven surfaces.",
     explore: ["Suspension design", "Vibration damping", "Balance & stability", "Ride comfort"],
   },
   {
     id: "ah-05", track: "automobile", number: "05",
     title: "Regenerative Braking & Energy Recovery",
     problem: "When a conventional vehicle slows down, much of its kinetic energy is lost as heat in the brakes. Frequent braking in urban traffic repeats the loss.",
-    challenge: "Develop an innovative solution or demonstrable model that captures, stores or reuses a portion of the energy normally wasted during braking.",
+    challenge: "Devise an innovative solution or demonstrable model that captures, stores or reuses a portion of the energy normally wasted during braking.",
     explore: ["Kinetic energy capture", "Energy storage", "Reuse of recovered energy", "Urban driving efficiency"],
   },
 
@@ -163,7 +163,7 @@ export const problemStatements: ProblemStatement[] = [
     safety: "Use low-voltage setups or ready, isolated modules. No bare mains wiring.",
   },
 
-  // InfraHack
+  // Buildathon
   {
     id: "h27-1a", track: "civil", number: "01",
     title: "Earthquake Early Warning Model",

@@ -30,7 +30,7 @@ There is no router library. `src/App.tsx` reads `window.location.pathname`:
 
 | Path | Page |
 |---|---|
-| `/` | Home: hero, tracks, how it works, impact, support, contact, final call to action |
+| `/` | Home: hero, tracks, prize pool, how it works, impact, support, contact, final call to action |
 | `/problems` | Problem statements, grouped by track, each with a full-brief modal |
 
 Any other path renders the home page. Nav links use plain `<a href>` tags, and a hash-scroll effect in `App.tsx` handles anchors such as `/#contact` after the page renders.
@@ -58,6 +58,7 @@ Design rules, tokens and component specs are in [`DESIGN_SYSTEM.md`](DESIGN_SYST
 
 Most changes need no component edits.
 
+- **Prize pool:** `prizePool` in `src/data/content.ts` (total and 1st/2nd/3rd amounts). It is the same for every track. It shows as a podium in the home page Prizes section and on each track header on `/problems`, and as a total on each track card. Components are in `src/components/prizes/`.
 - **Coordinators:** edit the `coordinators` array in `src/data/content.ts` (role, name, email, phone). A missing field renders "To be announced".
 - **Nav links:** `navLinks` in `src/data/content.ts`. Route constants are in `routes` in the same file.
 - **Problem statements:** `src/data/problems.ts`. Add only what the organiser documents state; leave unknown fields out.
@@ -72,7 +73,7 @@ Registration buttons are currently disabled and read "Registration Coming Soon".
 - No visible event years.
 - No references to phases.
 - Do not invent competition details. Unknowns stay out until the organisers confirm them.
-- Track names shown to visitors are AutoHack, ChargeUp and InfraHack.
+- Track names shown to visitors are AutoHack, ChargeUp and Buildathon.
 
 ## Deployment
 
