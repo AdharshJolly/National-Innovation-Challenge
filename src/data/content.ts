@@ -7,6 +7,7 @@ export const routes = {
   howItWorks: "/#how-it-works",
   support: "/#support",
   faq: "/#faq",
+  contact: "/#contact",
   register: "/#register", // → /register when built
 } as const;
 
@@ -15,8 +16,7 @@ export const navLinks = [
   { label: "Tracks", href: routes.tracks },
   { label: "Problem Statements", href: routes.problems },
   { label: "How It Works", href: routes.howItWorks },
-  { label: "Support", href: routes.support },
-  { label: "FAQs", href: routes.faq },
+  { label: "Support", href: routes.contact },
 ];
 
 export const heroStats = [
@@ -86,7 +86,30 @@ export const supportItems = [
   { icon: "finale", title: "Grand Finale", text: "Opportunity to showcase your prototype at the national finale." },
 ] as const;
 
-export const footerContact = {
-  // TODO: replace with the approved NIC contact once finalised.
-  label: "Contact details to be announced",
-};
+export interface Coordinator {
+  role: "Faculty Coordinator" | "Student Coordinator";
+  name?: string;
+  email?: string;
+  phone?: string;
+}
+
+export const coordinators: Coordinator[] = [
+  {
+    role: "Faculty Coordinator",
+    name: "Dr Haneesh K M",
+    email: "haneesh.km@christuniversity.in",
+    phone: "+919731121921",
+  },
+  {
+    role: "Student Coordinator",
+    name: "Annmarie Vinish Kallingal",
+    email: "annmarie.vinish@btech.christuniversity.in",
+    phone: "+918921323033",
+  },
+  {
+    role: "Student Coordinator",
+    name: "Rebecca Lenin Koshy",
+    email: "rebecca.lenin@btech.christuniversity.in",
+    phone: "+916356117125",
+  },
+];

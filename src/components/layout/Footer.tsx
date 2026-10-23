@@ -1,12 +1,11 @@
-import { footerContact, navLinks } from "../../data/content";
-import { Logo } from "../ui/Logo";
+import { navLinks, routes } from "../../data/content";
 
 export function Footer() {
   return (
     <footer className="footer" data-surface="dark" id="faq">
       <div className="container footer__grid">
         <div className="footer__brand">
-          <Logo variant="footer" />
+          <p className="t-label footer__title">National Innovation Challenge</p>
           <p className="t-body-sm footer__muted">
             A national hardware innovation challenge for the next generation of builders.
           </p>
@@ -23,7 +22,7 @@ export function Footer() {
 
         <div>
           <h2 className="t-label footer__title">Contact</h2>
-          <p className="t-body-sm footer__muted">{footerContact.label}</p>
+          <p className="t-body-sm"><a href={routes.contact}>Meet the coordinators</a></p>
           <p className="t-body-sm footer__muted">Social links coming soon.</p>
         </div>
 

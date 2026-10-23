@@ -11,7 +11,7 @@ export function FinalCTA() {
         </h2>
         <p className="t-body-lg final-cta__lead">Bring your team. Choose your challenge. Build something that matters.</p>
         <div className="final-cta__ctas">
-          <Button variant="accent" size="lg" href={routes.register} arrow>Register Your Team</Button>
+          <Button variant="accent" size="lg" disabled>Registration Coming Soon</Button>
           <Button variant="outline-dark" size="lg" href={routes.problems}>Explore Problem Statements</Button>
         </div>
       </Reveal>

@@ -7,6 +7,7 @@ import { ProblemsIntro, TrackProblems } from "./components/problems/ProblemsSect
 import { HowItWorks } from "./components/journey/HowItWorks";
 import { ImpactSection } from "./components/impact/ImpactSection";
 import { SupportSection } from "./components/support/SupportSection";
+import { ContactSection } from "./components/contact/ContactSection";
 import { FinalCTA } from "./components/cta/FinalCTA";
 import { tracks } from "./data/content";
 
@@ -18,6 +19,7 @@ function Home() {
       <HowItWorks />
       <ImpactSection />
       <SupportSection />
+      <ContactSection />
       <FinalCTA />
     </>
   );

@@ -1,5 +1,5 @@
 import {
-  Layers, FileSearch, Users, Award, Cpu, Compass, Wrench, Flag, ArrowRight, Menu, X,
+  Layers, FileSearch, Users, Award, Cpu, Compass, Wrench, Flag, ArrowRight, Menu, X, Mail, Phone,
 } from "lucide-react";
 
 const map = {
@@ -14,6 +14,8 @@ const map = {
   arrow: ArrowRight,
   menu: Menu,
   close: X,
+  mail: Mail,
+  phone: Phone,
 } as const;
 
 export type IconName = keyof typeof map;
