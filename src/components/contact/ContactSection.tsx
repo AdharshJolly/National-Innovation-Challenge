@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { coordinators } from "../../data/content";
 import type { Coordinator } from "../../data/content";
 import { Icon } from "../ui/Icon";
@@ -12,40 +13,49 @@ function breakable(value: string) {
   return domain === undefined ? value : <>{local}@<wbr />{domain}</>;
 }
 
-function ContactLink({ icon, label, value, href }: { icon: "mail" | "phone"; label: string; value?: string; href?: string }) {
+/** +919731121921 becomes +91 97311 21921; anything else is shown as stored. */
+function formatPhone(value: string) {
+  const m = value.replace(/\s/g, "").match(/^\+91(\d{5})(\d{5})$/);
+  return m ? `+91 ${m[1]} ${m[2]}` : value;
+}
+
+type LinkProps = {
+  icon: "mail" | "phone";
+  short: string;
+  value?: string;
+  href?: string;
+  label: string;
+};
+
+/** Phones show the short label; from 1180px the full value shows. The aria-label always carries the full value. */
+function BadgeLink({ icon, short, value, href, label }: LinkProps) {
   const body = (
     <>
-      <Icon name={icon} size={18} />
-      <span>{value ? breakable(value) : TBA}</span>
+      <Icon name={icon} size={16} />
+      <span className="badge__short" aria-hidden="true">{short}</span>
+      <span className="badge__full" aria-hidden="true">{value ? (icon === "phone" ? formatPhone(value) : breakable(value)) : TBA}</span>
     </>
   );
-  return (
-    <div className="contact-row__cell">
-      <dt className="contact-row__label t-label">{label}</dt>
-      <dd>
-        {value && href ? (
-          <a className="contact-link" href={href}>{body}</a>
-        ) : (
-          <span className="contact-link contact-tba">{body}</span>
-        )}
-      </dd>
-    </div>
+  return value && href ? (
+    <a className="badge__link" href={href} aria-label={label}>{body}</a>
+  ) : (
+    <span className="badge__link badge__tba" aria-label={`${label}: ${TBA}`}>{body}</span>
   );
 }
 
-function Row({ c, index }: { c: Coordinator; index: number }) {
+function Badge({ c, index }: { c: Coordinator; index: number }) {
+  const who = c.name ?? TBA;
   const phoneHref = c.phone ? `tel:${c.phone.replace(/[^\d+]/g, "")}` : undefined;
   return (
-    <li className="contact-row">
-      <span className="contact-row__index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-      <div className="contact-row__who">
-        <h3 className="contact-row__name">{c.name ?? TBA}</h3>
-        <p className="t-label contact-row__role">{c.role}</p>
-      </div>
-      <dl className="contact-row__lines">
-        <ContactLink icon="mail" label="Email" value={c.email} href={c.email ? `mailto:${c.email}` : undefined} />
-        <ContactLink icon="phone" label="Phone" value={c.phone} href={phoneHref} />
-      </dl>
+    <li className="badge" style={{ "--i": index } as CSSProperties}>
+      <article className="badge__card">
+        <p className="badge__role">{c.role}</p>
+        <h3 className="badge__name">{who}</h3>
+        <div className="badge__links">
+          <BadgeLink icon="mail" short="Email" value={c.email} href={c.email ? `mailto:${c.email}` : undefined} label={`Email ${who}${c.email ? ` at ${c.email}` : ""}`} />
+          <BadgeLink icon="phone" short="Call" value={c.phone} href={phoneHref} label={`Call ${who}${c.phone ? ` on ${c.phone}` : ""}`} />
+        </div>
+      </article>
     </li>
   );
 }
@@ -56,11 +66,13 @@ export function ContactSection() {
       <div className="container">
         <SectionHeading id="contact-title">GET IN TOUCH WITH THE TEAM</SectionHeading>
         <Reveal>
-          <ul className="contact-list">
-            {coordinators.map((c, i) => (
-              <Row key={c.name ?? i} c={c} index={i} />
-            ))}
-          </ul>
+          <div className="contact-rail">
+            <ul className="contact-badges">
+              {coordinators.map((c, i) => (
+                <Badge key={c.name ?? i} c={c} index={i} />
+              ))}
+            </ul>
+          </div>
         </Reveal>
       </div>
     </section>
