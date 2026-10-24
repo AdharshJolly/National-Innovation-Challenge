@@ -62,7 +62,7 @@ export function TrackProblems({ trackId }: { trackId: (typeof tracks)[number]["i
           <dl className="pevent__facts">
             <div><dt className="t-label">Problems</dt><dd>{items.length}</dd></div>
             <div><dt className="t-label">Who can enter</dt><dd>{event.eligibility}</dd></div>
-            {event.teamSize !== "Not specified" && <div><dt className="t-label">Team size</dt><dd>{event.teamSize}</dd></div>}
+            <div><dt className="t-label">Team size</dt><dd>{event.teamSize}</dd></div>
           </dl>
         </div>
 
