@@ -559,8 +559,6 @@ a.partner-logo:hover { transform: translateY(var(--move-hover)); }
 .prize__unit { font-size: .32em; letter-spacing: -0.02em; margin-left: .25em; color: var(--nic-cyan); font-weight: 600; }
 .prize__upto { flex-basis: 100%; font-size: .14em; letter-spacing: .08em; margin-bottom: .3em; color: var(--nic-cyan); font-weight: 600; text-transform: uppercase; }
 .prize__link { color: var(--nic-cyan); margin-top: var(--space-2); }
-.prize__tracks { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-6); font-family: "Unbounded Variable", var(--font-display); font-weight: 600; color: var(--nic-white); }
-.prize__tracks li + li { padding-left: var(--space-6); border-left: 1px solid rgba(255,255,255,.35); }
 @media (prefers-reduced-motion: no-preference) {
   .prize__bg { animation: prize-drift 18s ease-in-out infinite alternate; }
   @keyframes prize-drift { from { transform: scale(1); } to { transform: scale(1.04) translateX(-1%); } }
@@ -569,6 +567,22 @@ a.partner-logo:hover { transform: translateY(var(--move-hover)); }
   .prize__bg { background: linear-gradient(180deg, rgba(26,8,48,.5) 0%, transparent 40%), url("/images/prize-bg-mobile.png") center bottom / auto 62% no-repeat;
     -webkit-mask-image: none; mask-image: none; }
   .prize__grid { min-height: 36rem; align-content: start; }
-  .prize__tracks li + li { padding-left: var(--space-4); }
-  .prize__tracks { gap: var(--space-2) var(--space-4); font-size: .875rem; }
+}
+
+/* ---------- pointer interactions (mouse + motion allowed only) ---------- */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .track-card::before {
+    content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none; opacity: 0;
+    background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), rgb(6 182 212 / 0.2), transparent 65%);
+    transition: opacity var(--transition-standard);
+  }
+  .track-card:hover::before { opacity: 1; }
+  .track-card:hover, .track-card:focus-within {
+    transform: perspective(900px) translateY(var(--move-hover)) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  }
+  .track-card:hover .track-visual__img, .track-card:hover .track-visual__svg { transform: scale(1.05); }
+  .hero__visual .hero-visual__img {
+    transform: translate(calc(var(--px, 0) * -10px), calc(var(--py, 0) * -6px)) scale(1.04);
+    transition: transform 0.4s var(--ease-emphasis);
+  }
 }

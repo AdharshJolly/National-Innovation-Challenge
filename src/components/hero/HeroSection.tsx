@@ -1,3 +1,5 @@
+import { useRef } from "react";
+import { usePointerParallax } from "../../hooks/usePointerFx";
 import { routes } from "../../data/content";
 import GradientWaves from "../effects/GradientWaves";
 import { HeroVisual } from "../visuals/HeroVisual";
@@ -5,8 +7,11 @@ import { Button } from "../ui/Button";
 import { HeroStats } from "./HeroStats";
 
 export function HeroSection() {
+  const hero = useRef<HTMLElement>(null);
+  const visual = useRef<HTMLDivElement>(null);
+  usePointerParallax(hero, visual);
   return (
-    <section className="hero bg-spectrum--grid" id="top" aria-labelledby="hero-title">
+    <section ref={hero} className="hero bg-spectrum--grid" id="top" aria-labelledby="hero-title">
       <div className="hero__waves" aria-hidden="true">
         {/* canvas colours must be literals; they mirror --nic-indigo, --nic-electric-blue, --nic-cyan */}
         <GradientWaves
@@ -40,7 +45,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="hero__visual">
+        <div className="hero__visual" ref={visual}>
           <HeroVisual src="/images/hero-main.png" />
         </div>
       </div>

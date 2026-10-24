@@ -1,8 +1,26 @@
 import { useState } from "react";
+import type { PointerEvent } from "react";
 import type { Track } from "../../data/content";
 import PixelSwap from "../effects/PixelSwap";
 import { Icon } from "../ui/Icon";
 import { TrackVisual } from "../visuals/TrackVisual";
+
+/** Mouse only: feeds the cursor position to CSS for the glow and the tilt. */
+function tilt(e: PointerEvent<HTMLElement>) {
+  if (e.pointerType !== "mouse") return;
+  const el = e.currentTarget;
+  const r = el.getBoundingClientRect();
+  const x = (e.clientX - r.left) / r.width;
+  const y = (e.clientY - r.top) / r.height;
+  el.style.setProperty("--mx", `${x * 100}%`);
+  el.style.setProperty("--my", `${y * 100}%`);
+  el.style.setProperty("--rx", `${(0.5 - y) * 6}deg`);
+  el.style.setProperty("--ry", `${(x - 0.5) * 6}deg`);
+}
+function untilt(e: PointerEvent<HTMLElement>) {
+  e.currentTarget.style.setProperty("--rx", "0deg");
+  e.currentTarget.style.setProperty("--ry", "0deg");
+}
 
 export function TrackCard({ track }: { track: Track }) {
   const [hot, setHot] = useState(false);
@@ -11,9 +29,10 @@ export function TrackCard({ track }: { track: Track }) {
       className="track-card"
       data-track={track.id}
       onPointerEnter={(e) => e.pointerType !== "touch" && setHot(true)}
-      onPointerLeave={(e) => e.pointerType !== "touch" && setHot(false)}
       onFocus={(e) => e.target.matches(":focus-visible") && setHot(true)}
       onBlur={() => setHot(false)}
+      onPointerMove={tilt}
+      onPointerLeave={(e) => { if (e.pointerType !== "touch") setHot(false); untilt(e); }}
     >
       <div className="track-card__media">
         <PixelSwap

@@ -1,4 +1,4 @@
-import { prizePool, routes, tracks } from "../../data/content";
+import { prizePool, routes } from "../../data/content";
 import { Icon } from "../ui/Icon";
 import { Reveal } from "../ui/Reveal";
 
@@ -21,11 +21,6 @@ export function PrizeSection() {
           </div>
         </Reveal>
 
-        <ul className="prize__tracks" aria-label="Tracks">
-          {tracks.map((track) => (
-            <li key={track.id}>{track.title}</li>
-          ))}
-        </ul>
       </div>
     </section>
   );
