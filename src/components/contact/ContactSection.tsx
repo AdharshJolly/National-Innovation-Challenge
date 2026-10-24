@@ -47,7 +47,7 @@ function Person({ c, featured = false }: { c: Coordinator; featured?: boolean })
         <span className="contact-person__mono" aria-hidden="true">{initials(c.name)}</span>
         <div>
           <p className="t-label contact-person__role">{c.role}</p>
-          <h3 className="t-h2 contact-person__name">{c.name ?? TBA}</h3>
+          <h3 className="t-h3 contact-person__name">{c.name ?? TBA}</h3>
         </div>
       </div>
       <dl className="contact-person__lines">
