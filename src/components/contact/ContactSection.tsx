@@ -6,12 +6,6 @@ import { SectionHeading } from "../ui/SectionHeading";
 
 const TBA = "To be announced";
 
-function initials(name?: string) {
-  if (!name) return "NIC";
-  const parts = name.replace(/^(Dr|Prof)\.?\s+/i, "").split(/\s+/).filter(Boolean);
-  return ((parts[0]?.[0] ?? "") + (parts.length > 1 ? parts[parts.length - 1][0] : "")).toUpperCase();
-}
-
 /** Offers a line break after the @ so long emails wrap cleanly on narrow screens. */
 function breakable(value: string) {
   const [local, domain] = value.split("@");
@@ -21,7 +15,7 @@ function breakable(value: string) {
 function ContactLine({ icon, label, value, href }: { icon: "mail" | "phone"; label: string; value?: string; href?: string }) {
   const body = (
     <>
-      <span className="contact-pill__icon"><Icon name={icon} size={18} /></span>
+      <Icon name={icon} size={18} />
       <span>{value ? breakable(value) : TBA}</span>
     </>
   );
@@ -30,31 +24,38 @@ function ContactLine({ icon, label, value, href }: { icon: "mail" | "phone"; lab
       <dt className="sr-only">{label}</dt>
       <dd>
         {value && href ? (
-          <a className="contact-pill" href={href}>{body}</a>
+          <a className="contact-link" href={href}>{body}</a>
         ) : (
-          <span className="contact-pill contact-tba">{body}</span>
+          <span className="contact-link contact-tba">{body}</span>
         )}
       </dd>
     </div>
   );
 }
 
-function Person({ c, featured = false }: { c: Coordinator; featured?: boolean }) {
+function Person({ c }: { c: Coordinator }) {
   const phoneHref = c.phone ? `tel:${c.phone.replace(/[^\d+]/g, "")}` : undefined;
   return (
-    <article className={`contact-person${featured ? " contact-person--featured" : ""}`}>
-      <div className="contact-person__head">
-        <span className="contact-person__mono" aria-hidden="true">{initials(c.name)}</span>
-        <div>
-          <p className="t-label contact-person__role">{c.role}</p>
-          <h3 className="t-h3 contact-person__name">{c.name ?? TBA}</h3>
-        </div>
-      </div>
+    <article className="contact-person">
+      <h4 className="t-h3 contact-person__name">{c.name ?? TBA}</h4>
       <dl className="contact-person__lines">
         <ContactLine icon="mail" label="Email" value={c.email} href={c.email ? `mailto:${c.email}` : undefined} />
         <ContactLine icon="phone" label="Phone" value={c.phone} href={phoneHref} />
       </dl>
     </article>
+  );
+}
+
+function Group({ title, people, delay }: { title: string; people: Coordinator[]; delay: number }) {
+  return (
+    <Reveal delay={delay}>
+      <div className="contact-group">
+        <h3 className="t-label contact-group__title">{title}</h3>
+        {people.map((c, i) => (
+          <Person key={c.name ?? i} c={c} />
+        ))}
+      </div>
+    </Reveal>
   );
 }
 
@@ -65,21 +66,9 @@ export function ContactSection() {
     <section className="section section--light bg-light-technical" id="contact" aria-labelledby="contact-title">
       <div className="container">
         <SectionHeading id="contact-title">GET IN TOUCH WITH THE TEAM</SectionHeading>
-        <div className="contact-grid">
-          <div className="contact-students">
-            {faculty.map((c, i) => (
-              <Reveal key={c.name ?? i} delay={i}>
-                <Person c={c} featured />
-              </Reveal>
-            ))}
-          </div>
-          <div className="contact-students">
-            {students.map((c, i) => (
-              <Reveal key={c.name ?? i} delay={i + 1}>
-                <Person c={c} />
-              </Reveal>
-            ))}
-          </div>
+        <div className="contact-board">
+          <Group title="Faculty coordinators" people={faculty} delay={0} />
+          <Group title="Student coordinators" people={students} delay={1} />
         </div>
       </div>
     </section>

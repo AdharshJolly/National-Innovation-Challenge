@@ -441,41 +441,25 @@ body:has(dialog[open]) { overflow: hidden; }
     var(--nic-paper) 100%);
 }
 
-/* Contact: dark faculty lead beside two light student cards, each with a monogram and pill links */
+/* Contact: one dark board, two columns of coordinators separated by hairlines */
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-.contact-grid { display: grid; gap: var(--space-6); grid-template-columns: 1fr; }
-.contact-grid > .reveal, .contact-students > .reveal { display: flex; }
-.contact-students { display: grid; gap: var(--space-6); grid-template-columns: 1fr; }
-.contact-person { position: relative; isolation: isolate; overflow: hidden; flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--space-4); padding: var(--card-pad); background: var(--nic-white); border: var(--card-border); border-radius: var(--card-radius); transition: transform var(--transition-standard), box-shadow var(--transition-standard), border-color var(--transition-standard); }
-.contact-person:hover { transform: translateY(var(--move-hover)); box-shadow: var(--card-elevated-shadow); border-color: var(--nic-electric-blue); }
-.contact-person__head { display: flex; align-items: center; gap: var(--space-4); min-width: 0; }
-.contact-person__mono { flex: none; display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; font: var(--fw-bold) 1.125rem/1 var(--font-display); letter-spacing: 0.02em; color: var(--nic-white); background: linear-gradient(135deg, var(--nic-electric-blue), var(--nic-indigo)); }
-.contact-person__role { color: var(--nic-electric-blue); margin: 0 0 var(--space-1); }
-.contact-person__name { margin: 0; overflow-wrap: anywhere; }
-.contact-person__lines { margin: 0; display: grid; gap: var(--space-2); }
-.contact-line { display: block; }
+.contact-board { margin-top: var(--space-8); position: relative; isolation: isolate; overflow: hidden; display: grid; grid-template-columns: 1fr; gap: var(--space-8); padding: var(--space-8) var(--space-6); border-radius: var(--radius-md); color: var(--nic-white); background-color: #12051F; background-image: radial-gradient(55% 80% at 100% 0%, rgb(34 211 238 / 0.14), transparent 70%); }
+.contact-board::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 2px; background: linear-gradient(90deg, var(--nic-cyan), transparent 70%); z-index: -1; }
+.contact-group { min-width: 0; }
+.contact-group__title { margin: 0 0 var(--space-2); color: var(--nic-cyan); }
+.contact-person { padding: var(--space-5) 0; border-top: 1px solid rgb(255 255 255 / 0.14); }
+.contact-person__name { margin: 0 0 var(--space-3); color: var(--nic-white); overflow-wrap: anywhere; }
+.contact-person__lines { margin: 0; display: grid; gap: var(--space-1); }
+.contact-line, .contact-line dd { margin: 0; }
 .contact-line dt { margin: 0; }
-.contact-line dd { margin: 0; }
-.contact-pill { display: flex; align-items: center; gap: var(--space-3); min-height: 48px; padding: 6px var(--space-4) 6px 6px; border: var(--card-border); border-radius: 999px; background: var(--nic-paper); color: var(--nic-graphite); text-decoration: none; overflow-wrap: break-word; min-width: 0; transition: background var(--transition-standard), border-color var(--transition-standard), color var(--transition-standard); }
-.contact-pill:hover { background: var(--nic-blue-tint); border-color: var(--nic-electric-blue); color: var(--nic-electric-blue); }
-.contact-pill__icon { flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--nic-white); color: var(--nic-electric-blue); }
-.contact-tba { color: var(--color-text-muted); }
-
-.contact-person--featured { color: var(--nic-white); border-color: transparent; background-color: var(--nic-deep-violet); background-image: radial-gradient(60% 70% at 100% 0%, rgb(76 58 220 / 0.55), transparent 70%), radial-gradient(45% 50% at 0% 100%, rgb(34 211 238 / 0.14), transparent 70%), linear-gradient(var(--grid-line-dark) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line-dark) 1px, transparent 1px); background-size: auto, auto, 32px 32px, 32px 32px; }
-.contact-person--featured::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: linear-gradient(90deg, var(--nic-cyan), var(--nic-electric-blue)); z-index: -1; }
-.contact-person--featured:hover { border-color: transparent; transform: none; box-shadow: var(--card-elevated-shadow); }
-.contact-person--featured .contact-person__mono { background: linear-gradient(135deg, var(--nic-cyan), var(--nic-electric-blue)); color: var(--nic-deep-violet); }
-.contact-person--featured .contact-person__role { color: var(--nic-cyan); }
-.contact-person--featured .contact-person__name { color: var(--nic-white); }
-.contact-person--featured .contact-pill { background: rgb(255 255 255 / 0.08); border-color: var(--nic-violet-line-strong); color: var(--nic-white); }
-.contact-person--featured .contact-pill:hover { background: rgb(255 255 255 / 0.16); border-color: var(--nic-cyan); color: var(--nic-white); }
-.contact-person--featured .contact-pill__icon { background: rgb(255 255 255 / 0.12); color: var(--nic-cyan); }
-.contact-person--featured .contact-tba { color: rgb(255 255 255 / 0.7); }
-.contact-person--featured :where(a):focus-visible { outline-color: var(--nic-cyan); }
+.contact-link { display: flex; align-items: center; gap: var(--space-3); min-height: 44px; min-width: 0; color: rgb(255 255 255 / 0.86); text-decoration: none; overflow-wrap: anywhere; transition: color var(--transition-standard); }
+.contact-link svg { flex: none; color: var(--nic-cyan); }
+a.contact-link:hover { color: var(--nic-cyan); }
+a.contact-link:focus-visible { outline: 2px solid var(--nic-cyan); outline-offset: 2px; border-radius: 4px; }
+.contact-tba { color: rgb(255 255 255 / 0.7); }
 @media (min-width: 900px) {
-  .contact-grid { grid-template-columns: 1fr 1fr; }
+  .contact-board { grid-template-columns: 1fr 1fr; gap: var(--space-12); padding: var(--space-12); }
 }
-@media (prefers-reduced-motion: reduce) { .contact-person:hover { transform: none; } }
 
 .btn--disabled, .btn--disabled:hover, .btn--disabled:active { cursor: not-allowed; transform: none; background: rgb(255 255 255 / 0.14); color: rgb(255 255 255 / 0.82); border-color: var(--nic-violet-line-strong); }
 
