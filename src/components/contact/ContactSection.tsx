@@ -48,14 +48,14 @@ function Badge({ c, index }: { c: Coordinator; index: number }) {
   const phoneHref = c.phone ? `tel:${c.phone.replace(/[^\d+]/g, "")}` : undefined;
   return (
     <li className="badge" style={{ "--i": index } as CSSProperties}>
-      <article className="badge__card">
+      <div className="badge__card">
         <p className="badge__role">{c.role}</p>
         <h3 className="badge__name">{who}</h3>
         <div className="badge__links">
           <BadgeLink icon="mail" short="Email" value={c.email} href={c.email ? `mailto:${c.email}` : undefined} label={`Email ${who}${c.email ? ` at ${c.email}` : ""}`} />
           <BadgeLink icon="phone" short="Call" value={c.phone} href={phoneHref} label={`Call ${who}${c.phone ? ` on ${c.phone}` : ""}`} />
         </div>
-      </article>
+      </div>
     </li>
   );
 }

@@ -556,6 +556,7 @@ a.partner-logo:hover { transform: translateY(var(--move-hover)); }
 .prize__amount { margin: 0; display: flex; align-items: baseline; flex-wrap: wrap; font-family: "Unbounded Variable", var(--font-display); font-weight: 800; font-size: clamp(4.5rem, 17vw, 12rem); line-height: .95; letter-spacing: -0.05em; color: var(--nic-white); }
 .prize__rupee { color: var(--nic-cyan); margin-right: .04em; }
 .prize__unit { font-size: .32em; letter-spacing: -0.02em; margin-left: .25em; color: var(--nic-cyan); font-weight: 600; }
+.prize__upto { flex-basis: 100%; font-size: .22em; letter-spacing: 0; margin-bottom: .3em; color: var(--nic-cyan); font-weight: 600; text-transform: uppercase; }
 .prize__sub { margin: 0; font-size: 1.125rem; color: var(--nic-white); }
 .prize__link { color: var(--nic-cyan); margin-top: var(--space-2); }
 .prize__tracks { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-6); font-family: "Unbounded Variable", var(--font-display); font-weight: 600; color: var(--nic-white); }

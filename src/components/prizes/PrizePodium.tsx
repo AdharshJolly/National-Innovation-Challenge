@@ -9,7 +9,7 @@ export function PrizePodium({ compact = false, label }: { compact?: boolean; lab
     <div className={`podium${compact ? " podium--compact" : ""}`} data-surface="dark" role="group" aria-label={label ?? "Prize pool"}>
       <div className="podium__total">
         <span className="podium__trophy"><Icon name="trophy" size={compact ? 22 : 28} /></span>
-        <p className="t-label podium__kicker">Prize pool</p>
+        <p className="t-label podium__kicker">Prize pool per track</p>
         <p className="podium__amount">{prizePool.total}</p>
       </div>
       <ol className="podium__steps">
