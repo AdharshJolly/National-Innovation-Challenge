@@ -29,15 +29,12 @@ export function ProblemCard({ p }: { p: ProblemStatement }) {
   return (
     <article className="problem" data-track={p.track}>
       <span className="problem__num" aria-hidden="true">{p.number}</span>
-      <div className="problem__main">
-        {p.theme && <span className="t-label problem__theme">{p.theme}</span>}
-        <h3 className="t-h3 t-balance problem__title">{p.title}</h3>
-        {p.hook && <p className="problem__hook">{p.hook}</p>}
-      </div>
+      {p.theme && <span className="t-label problem__theme">{p.theme}</span>}
+      <h3 className="t-h3 t-balance problem__title">{p.title}</h3>
+      {p.hook && <p className="problem__hook">{p.hook}</p>}
       <p className="problem__challenge">{p.challenge}</p>
       <button type="button" className="problem__open" onClick={() => dialog.current?.showModal()}>
-        <span className="problem__open-label">View brief</span>
-        <span className="problem__open-icon"><Icon name="arrow" size={20} /></span>
+        View full brief <Icon name="arrow" size={18} />
       </button>
 
       <dialog

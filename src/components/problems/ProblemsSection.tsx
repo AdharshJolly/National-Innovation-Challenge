@@ -68,13 +68,13 @@ export function TrackProblems({ trackId }: { trackId: (typeof tracks)[number]["i
 
         <PrizePodium compact label={`${event.name} prize pool`} />
 
-        <ol className="problem-list">
+        <ul className="problem-grid">
           {items.map((p, i) => (
             <Reveal as="li" key={p.id} delay={i}>
               <ProblemCard p={p} />
             </Reveal>
           ))}
-        </ol>
+        </ul>
       </div>
     </section>
   );
