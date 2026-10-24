@@ -20,14 +20,16 @@ export const navLinks = [
 ];
 
 export const heroStats = [
+  { icon: "trophy", value: "₹3 Lakh", label: "Prize Pool" },
   { icon: "tracks", value: "3", label: "Tracks" },
-  { icon: "problems", value: "Real-World", label: "Problem Statements" },
   { icon: "mentorship", value: "Expert", label: "Mentorship" },
   { icon: "recognition", value: "National", label: "Recognition" },
 ] as const;
 
 /** Same prize pool for every track. */
 export const prizePool = {
+  /** Overall pool across all three tracks, shown on the home page. */
+  grandTotal: "₹3 Lakh",
   total: "₹1,00,000",
   places: [
     { place: "1st", amount: "₹50,000" },

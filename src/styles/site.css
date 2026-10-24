@@ -141,13 +141,12 @@ svg, img { display: block; max-width: 100%; }
 .hero__ctas { display: flex; flex-wrap: wrap; gap: var(--space-3); }
 .hero__ctas .btn { flex: 1 1 220px; }
 .hero__visual {
-  position: relative; aspect-ratio: 8 / 7;
-  /* unframed: every edge feathers into the hero background */
-  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 80%, transparent), linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
-  -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 80%, transparent), linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
-  mask-composite: intersect;
+  /* mobile: the artwork is the hero's backdrop; it dims behind the copy and brightens in the middle */
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, rgb(0 0 0 / 0.16) 0%, rgb(0 0 0 / 0.28) 40%, #000 74%, #000 88%, transparent);
+  mask-image: linear-gradient(to bottom, rgb(0 0 0 / 0.16) 0%, rgb(0 0 0 / 0.28) 40%, #000 74%, #000 88%, transparent);
 }
+.hero__visual .hero-visual__img { object-position: 68% 70%; }
 .hero-visual__svg, .hero-visual__img { width: 100%; height: 100%; object-fit: cover; }
 .hero-stats {
   display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4) var(--space-4);
@@ -168,9 +167,11 @@ svg, img { display: block; max-width: 100%; }
   .hero__ctas .btn { flex: 0 0 auto; }
   /* background plate: fills the hero behind the copy; the left side dissolves so text stays readable */
   .hero__visual {
-    position: absolute; top: 0; bottom: 0; right: 0; left: auto; width: 78%; aspect-ratio: auto; z-index: -1; pointer-events: none;
+    inset: 0 0 0 auto; width: 78%;
     -webkit-mask-image: linear-gradient(to right, transparent, rgb(0 0 0 / 0.35) 30%, #000 65%), linear-gradient(to bottom, transparent, #000 22%, #000 70%, transparent);
     mask-image: linear-gradient(to right, transparent, rgb(0 0 0 / 0.35) 30%, #000 65%), linear-gradient(to bottom, transparent, #000 22%, #000 70%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
   }
   .hero__visual .hero-visual__img { object-position: 70% 85%; }
   .hero-stats { margin-top: var(--space-10); }
@@ -208,10 +209,6 @@ svg, img { display: block; max-width: 100%; }
 .track-card:has(.track-card__link:focus-visible) { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }
 .track-card__tagline { font-weight: var(--fw-semibold); color: var(--track-ink); }
 .track-card__text { color: var(--nic-slate); }
-.track-card__prize { display: flex; align-items: center; gap: var(--space-2); margin: var(--space-3) 0 0; padding-top: var(--space-3); border-top: 1px solid var(--nic-border, rgba(0,0,0,.12)); }
-.track-card__prize-icon { display: inline-flex; color: var(--track-ink); }
-.track-card__prize .t-label { color: var(--nic-slate); margin-right: auto; }
-.track-card__prize strong { font-weight: var(--fw-semibold); color: var(--nic-graphite); font-size: 1.125rem; }
 .track-card__cta { display: inline-flex; align-items: center; gap: var(--space-2); margin-top: auto; padding-top: var(--space-4); font-weight: var(--fw-semibold); color: var(--nic-graphite); }
 .track-card:hover .track-card__cta { color: var(--track-ink); }
 @media (min-width: 768px) {
@@ -403,7 +400,7 @@ body:has(dialog[open]) { overflow: hidden; }
    Each section opens with a soft fade from the colour of the section above,
    so dark/light changes read as a gradient instead of a hard edge. */
 #how-it-works, #challenge, #support, #register { --seam-h: 8rem; padding-top: calc(var(--section-y) + 3rem); }
-#how-it-works { --seam-from: var(--nic-paper); }
+#how-it-works { --seam-from: var(--nic-deep-violet); --seam-h: 6rem; padding-top: var(--section-y); }
 #challenge { --seam-from: var(--nic-deep-violet); }
 #support { --seam-from: var(--nic-white); --seam-h: 5rem; padding-top: var(--section-y); }
 #register { --seam-from: var(--nic-paper); }
@@ -500,6 +497,9 @@ body:has(dialog[open]) { overflow: hidden; }
 }
 .problems-track .podium { margin-bottom: var(--space-10); }
 .podium--compact .podium__amount { font-size: clamp(2rem, 7vw, 3rem); }
+.podium--banner { justify-items: start; gap: var(--space-3); }
+.podium--banner .podium__amount { font-size: clamp(3.5rem, 14vw, 7rem); }
+.podium__link { color: var(--nic-cyan); margin-top: var(--space-3); }
 .podium--compact .podium__trophy { width: 40px; height: 40px; }
 .podium--compact { gap: var(--space-4); padding: var(--card-pad); }
 
@@ -519,4 +519,34 @@ a.partner-logo:hover { transform: translateY(var(--move-hover)); }
   .partner-tier__name { padding: var(--space-6) var(--space-4) var(--space-6) var(--card-pad); align-self: stretch; }
   .partner-logos { padding: var(--space-6) var(--card-pad) var(--space-6) 0; }
   .partner-logo img { height: 80px; }
+}
+
+/* ---------- prize pool band (home) ---------- */
+.prize { overflow: hidden; isolation: isolate; background: var(--nic-deep-violet); padding-bottom: calc(var(--section-y) + 6rem); }
+.prize::after { content: ""; position: absolute; inset: auto 0 0 0; height: 14rem; z-index: -1; pointer-events: none; background: linear-gradient(180deg, transparent, var(--nic-deep-violet) 85%); }
+.prize > .container { position: relative; z-index: 1; }
+/* seam: the dark band dissolves upward into the light tracks section (overlaps its bottom padding) */
+.prize { margin-top: -7rem; padding-top: calc(var(--section-y) + 7rem); -webkit-mask-image: linear-gradient(180deg, transparent 0, rgb(0 0 0 / .12) 1.75rem, rgb(0 0 0 / .4) 3.5rem, rgb(0 0 0 / .8) 5.5rem, #000 7rem); mask-image: linear-gradient(180deg, transparent 0, rgb(0 0 0 / .12) 1.75rem, rgb(0 0 0 / .4) 3.5rem, rgb(0 0 0 / .8) 5.5rem, #000 7rem); }
+.prize__bg { position: absolute; inset: 0; z-index: -1; background:
+  linear-gradient(90deg, rgba(26,8,48,.55) 0%, rgba(26,8,48,.15) 45%, transparent 70%),
+  url("/images/prize.png") 70% center / cover no-repeat; }
+.prize__grid { display: grid; gap: var(--space-6); justify-items: start; min-height: 26rem; align-content: center; }
+.prize__copy { display: grid; gap: var(--space-3); justify-items: start; }
+.prize__title { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--nic-cyan); margin: 0; }
+.prize__amount { margin: 0; display: flex; align-items: baseline; flex-wrap: wrap; font-family: "Unbounded Variable", var(--font-display); font-weight: 800; font-size: clamp(4.5rem, 17vw, 12rem); line-height: .95; letter-spacing: -0.05em; color: var(--nic-white); }
+.prize__rupee { color: var(--nic-cyan); margin-right: .04em; }
+.prize__unit { font-size: .32em; letter-spacing: -0.02em; margin-left: .25em; color: var(--nic-cyan); font-weight: 600; }
+.prize__sub { margin: 0; font-size: 1.125rem; color: var(--nic-white); }
+.prize__link { color: var(--nic-cyan); margin-top: var(--space-2); }
+.prize__tracks { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-6); font-family: "Unbounded Variable", var(--font-display); font-weight: 600; color: var(--nic-white); }
+.prize__tracks li + li { padding-left: var(--space-6); border-left: 1px solid rgba(255,255,255,.35); }
+@media (prefers-reduced-motion: no-preference) {
+  .prize__bg { animation: prize-drift 18s ease-in-out infinite alternate; }
+  @keyframes prize-drift { from { transform: scale(1.04); } to { transform: scale(1.1) translateX(-1%); } }
+}
+@media (max-width: 767px) {
+  .prize__bg { background: linear-gradient(180deg, rgba(26,8,48,.5) 0%, transparent 40%), url("/images/prize-bg-mobile.png") center bottom / cover no-repeat; }
+  .prize__grid { min-height: 36rem; align-content: start; }
+  .prize__tracks li + li { padding-left: var(--space-4); }
+  .prize__tracks { gap: var(--space-2) var(--space-4); font-size: .875rem; }
 }
