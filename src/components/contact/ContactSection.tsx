@@ -12,7 +12,7 @@ function breakable(value: string) {
   return domain === undefined ? value : <>{local}@<wbr />{domain}</>;
 }
 
-function ContactLine({ icon, label, value, href }: { icon: "mail" | "phone"; label: string; value?: string; href?: string }) {
+function ContactLink({ icon, label, value, href }: { icon: "mail" | "phone"; label: string; value?: string; href?: string }) {
   const body = (
     <>
       <Icon name={icon} size={18} />
@@ -20,8 +20,8 @@ function ContactLine({ icon, label, value, href }: { icon: "mail" | "phone"; lab
     </>
   );
   return (
-    <div className="contact-line">
-      <dt className="sr-only">{label}</dt>
+    <div className="contact-row__cell">
+      <dt className="contact-row__label t-label">{label}</dt>
       <dd>
         {value && href ? (
           <a className="contact-link" href={href}>{body}</a>
@@ -33,43 +33,35 @@ function ContactLine({ icon, label, value, href }: { icon: "mail" | "phone"; lab
   );
 }
 
-function Person({ c }: { c: Coordinator }) {
+function Row({ c, index }: { c: Coordinator; index: number }) {
   const phoneHref = c.phone ? `tel:${c.phone.replace(/[^\d+]/g, "")}` : undefined;
   return (
-    <article className="contact-person">
-      <h4 className="t-h3 contact-person__name">{c.name ?? TBA}</h4>
-      <dl className="contact-person__lines">
-        <ContactLine icon="mail" label="Email" value={c.email} href={c.email ? `mailto:${c.email}` : undefined} />
-        <ContactLine icon="phone" label="Phone" value={c.phone} href={phoneHref} />
-      </dl>
-    </article>
-  );
-}
-
-function Group({ title, people, delay }: { title: string; people: Coordinator[]; delay: number }) {
-  return (
-    <Reveal delay={delay}>
-      <div className="contact-group">
-        <h3 className="t-label contact-group__title">{title}</h3>
-        {people.map((c, i) => (
-          <Person key={c.name ?? i} c={c} />
-        ))}
+    <li className="contact-row">
+      <span className="contact-row__index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+      <div className="contact-row__who">
+        <h3 className="contact-row__name">{c.name ?? TBA}</h3>
+        <p className="t-label contact-row__role">{c.role}</p>
       </div>
-    </Reveal>
+      <dl className="contact-row__lines">
+        <ContactLink icon="mail" label="Email" value={c.email} href={c.email ? `mailto:${c.email}` : undefined} />
+        <ContactLink icon="phone" label="Phone" value={c.phone} href={phoneHref} />
+      </dl>
+    </li>
   );
 }
 
 export function ContactSection() {
-  const faculty = coordinators.filter((c) => c.role === "Faculty Coordinator");
-  const students = coordinators.filter((c) => c.role === "Student Coordinator");
   return (
     <section className="section section--light bg-light-technical" id="contact" aria-labelledby="contact-title">
       <div className="container">
         <SectionHeading id="contact-title">GET IN TOUCH WITH THE TEAM</SectionHeading>
-        <div className="contact-board">
-          <Group title="Faculty coordinators" people={faculty} delay={0} />
-          <Group title="Student coordinators" people={students} delay={1} />
-        </div>
+        <Reveal>
+          <ul className="contact-list">
+            {coordinators.map((c, i) => (
+              <Row key={c.name ?? i} c={c} index={i} />
+            ))}
+          </ul>
+        </Reveal>
       </div>
     </section>
   );
