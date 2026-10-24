@@ -291,9 +291,7 @@ svg, img { display: block; max-width: 100%; }
 .footer__cta { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--fs-body-sm); }
 .footer__cta svg { color: var(--nic-cyan-bright); }
 .footer__soon { margin-top: var(--space-2); }
-.footer__collab { margin-top: var(--space-3); margin-bottom: var(--space-2); }
-.footer__partner { display: inline-grid; place-items: center; padding: var(--space-1) var(--space-3); background: var(--nic-white); border-radius: var(--radius-md); }
-.footer__partner img { height: 32px; width: auto; display: block; }
+.footer__collab { margin-top: var(--space-3);  }
 .footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-3); padding-block: var(--space-4); border-top: 1px solid var(--nic-violet-line); color: var(--nic-slate-on-dark); }
 .footer__top { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--nic-mist); transition: color var(--transition-standard); }
 .footer__top svg { transform: rotate(-90deg); }

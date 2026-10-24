@@ -31,11 +31,12 @@ export function Footer() {
 
         <div>
           <h2 className="t-label footer__title">Organised by</h2>
-          <p className="t-body-sm">School of Engineering and Technology<br />CHRIST (Deemed to be University)</p>
-          <p className="t-body-sm footer__muted footer__collab">In collaboration with</p>
-          <span className="footer__partner">
-            <img src="/images/CDAC.svg" width={345} height={247} alt="C-DAC" loading="lazy" />
-          </span>
+          <p className="t-body-sm">
+            Industry Institute Interaction Cell (IIIC)<br />
+            School of Engineering and Technology<br />
+            CHRIST (Deemed to be University), Kengeri Campus, Bangalore
+          </p>
+          <p className="t-body-sm footer__muted footer__collab">In collaboration with C-DAC</p>
         </div>
       </div>
 
