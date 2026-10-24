@@ -15,7 +15,6 @@ export function PrizeSection() {
             <p className="prize__amount" aria-label={prizePool.grandTotal}>
               <span className="prize__upto">Up to</span><span className="prize__rupee">₹</span>3<span className="prize__unit">Lakh</span>
             </p>
-            <p className="prize__sub">Total prize pool of up to ₹3 Lakh across all three tracks (₹1 Lakh per track).</p>
             <a href={routes.problems} className="link-arrow prize__link">
               See prizes by track <Icon name="arrow" size={18} />
             </a>
