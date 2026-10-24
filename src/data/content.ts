@@ -112,10 +112,22 @@ export const coordinators: Coordinator[] = [
     phone: "+919731121921",
   },
   {
+    role: "Faculty Coordinator",
+    name: "Dr. Jacob Alex",
+    email: "jacob.alex@christuniversity.in",
+    phone: "+919940689577",
+  },
+  {
     role: "Student Coordinator",
     name: "Annmarie Vinish",
     email: "annmarie.vinish@btech.christuniversity.in",
     phone: "+918921323033",
+  },
+  {
+    role: "Student Coordinator",
+    name: "Rebecca Lenin Koshy",
+    email: "rebecca.lenin@btech.christuniversity.in",
+    phone: "+916356117125",
   },
 ];
 

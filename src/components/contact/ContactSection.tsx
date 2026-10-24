@@ -59,21 +59,23 @@ function Person({ c, featured = false }: { c: Coordinator; featured?: boolean })
 }
 
 export function ContactSection() {
-  const faculty = coordinators.find((c) => c.role === "Faculty Coordinator");
+  const faculty = coordinators.filter((c) => c.role === "Faculty Coordinator");
   const students = coordinators.filter((c) => c.role === "Student Coordinator");
   return (
     <section className="section section--light bg-light-technical" id="contact" aria-labelledby="contact-title">
       <div className="container">
         <SectionHeading id="contact-title">GET IN TOUCH WITH THE TEAM</SectionHeading>
         <div className="contact-grid">
-          {faculty && (
-            <Reveal>
-              <Person c={faculty} featured />
-            </Reveal>
-          )}
+          <div className="contact-students">
+            {faculty.map((c, i) => (
+              <Reveal key={c.name ?? i} delay={i}>
+                <Person c={c} featured />
+              </Reveal>
+            ))}
+          </div>
           <div className="contact-students">
             {students.map((c, i) => (
-              <Reveal key={i} delay={i + 1}>
+              <Reveal key={c.name ?? i} delay={i + 1}>
                 <Person c={c} />
               </Reveal>
             ))}

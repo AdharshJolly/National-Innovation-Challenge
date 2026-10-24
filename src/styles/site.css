@@ -473,7 +473,7 @@ body:has(dialog[open]) { overflow: hidden; }
 .contact-person--featured .contact-tba { color: rgb(255 255 255 / 0.7); }
 .contact-person--featured :where(a):focus-visible { outline-color: var(--nic-cyan); }
 @media (min-width: 900px) {
-  .contact-grid { grid-template-columns: 1.1fr 1fr; }
+  .contact-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (prefers-reduced-motion: reduce) { .contact-person:hover { transform: none; } }
 
