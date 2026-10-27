@@ -58,7 +58,7 @@ export const trackEvents: TrackEvent[] = [
   {
     id: "eee",
     name: "ChargeUp",
-    tagline: "Charging India's Future",
+    tagline: "E-mobility and clean energy",
     theme: "E-mobility and clean energy (a C-DAC collaborated initiative)",
     eligibility: "Class 12 students",
     teamSize: "Maximum 3 members",
@@ -81,8 +81,8 @@ export const trackEvents: TrackEvent[] = [
   {
     id: "civil",
     name: "Buildathon",
-    tagline: "Build. Simulate. Solve.",
-    theme: "Three themes, six real-world problem statements",
+    tagline: "Monitoring, sustainability and geospatial",
+    theme: "Three themes, six problem statements",
     eligibility: "Class 12 students",
     teamSize: "Maximum 3 members",
     notes: ["Industry partners: Mantis Infra Solutions, MYK Laticrete India, Space Geo Tech."],

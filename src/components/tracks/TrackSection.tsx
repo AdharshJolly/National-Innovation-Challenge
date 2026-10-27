@@ -6,7 +6,7 @@ import { TrackCard } from "./TrackCard";
 
 export function TrackSection() {
   return (
-    <section className="section section--light bg-light-technical" id="tracks" aria-labelledby="tracks-title">
+    <section className="section section--light" data-surface="dark" id="tracks" aria-labelledby="tracks-title">
       <div className="container">
         <div className="section-head-row">
           <SectionHeading id="tracks-title">

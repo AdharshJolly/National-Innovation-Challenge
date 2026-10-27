@@ -1,32 +1,14 @@
-import { navLinks, routes } from "../../data/content";
 import { Icon } from "../ui/Icon";
 
 export function Footer() {
   return (
-    <footer className="footer" data-surface="dark" id="faq">
+    <footer className="footer" data-surface="dark">
       <div className="container footer__grid">
         <div className="footer__brand">
-          <p className="footer__name">National Innovation Challenge</p>
+          <p className="footer__name">National Innovation<br />Challenge</p>
           <p className="t-body-sm footer__muted">
             A national hardware innovation challenge for the next generation of builders.
           </p>
-        </div>
-
-        <nav aria-label="Footer">
-          <h2 className="t-label footer__title">Explore</h2>
-          <ul className="footer__list">
-            {navLinks.map((l) => (
-              <li key={l.label}><a href={l.href}>{l.label}</a></li>
-            ))}
-          </ul>
-        </nav>
-
-        <div>
-          <h2 className="t-label footer__title">Contact</h2>
-          <a href={routes.contact} className="footer__cta">
-            Meet the coordinators <Icon name="arrow" size={16} />
-          </a>
-          <p className="t-body-sm footer__muted footer__soon">Social links coming soon.</p>
         </div>
 
         <div>

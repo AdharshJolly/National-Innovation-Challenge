@@ -1,29 +1,30 @@
 export type TrackId = "automobile" | "eee" | "civil";
 
 export const routes = {
-  challenge: "/#challenge",
   tracks: "/#tracks",
   problems: "/problems",
-  howItWorks: "/#how-it-works",
+  prizes: "/#prizes",
+  steps: "/#steps",
   support: "/#support",
-  faq: "/#faq",
   contact: "/#contact",
   register: "/#register", // → /register when built
 } as const;
 
+/** Same order as the sections on the home page. */
 export const navLinks = [
-  { label: "Challenge", href: routes.challenge },
   { label: "Tracks", href: routes.tracks },
-  { label: "Problem Statements", href: routes.problems },
-  { label: "How It Works", href: routes.howItWorks },
-  { label: "Support", href: routes.contact },
+  { label: "Problems", href: routes.problems },
+  { label: "Prizes", href: routes.prizes },
+  { label: "Steps", href: routes.steps },
+  { label: "Contact", href: routes.contact },
 ];
 
 export const heroStats = [
-  { icon: "trophy", value: "Up to ₹3 Lakh", label: "Total Prize Pool" },
-  { icon: "tracks", value: "3", label: "Tracks" },
-  { icon: "mentorship", value: "Expert", label: "Mentorship" },
-  { icon: "recognition", value: "National", label: "Recognition" },
+  { icon: "trophy", value: "Up to ₹3 Lakh", label: "Total prize pool", countUp: true },
+  { icon: "tracks", value: "3", label: "Tracks", countUp: true },
+  { icon: "mentorship", value: "Up to 3", label: "Members per team", countUp: true },
+  { icon: "explore", value: "Class 12", label: "Eligibility", countUp: false },
+  // TODO(later): add stats once confirmed, e.g. registration fee, number of finalists, Grand Finale date.
 ] as const;
 
 /** Same prize pool for every track. */
@@ -55,8 +56,8 @@ export const tracks: Track[] = [
     number: "01",
     title: "AutoHack",
     discipline: "AutoHack",
-    tagline: "Smart. Safe. Green.",
-    descriptor: "Automotive Innovation Challenge: practical, affordable ideas for sustainable mobility.",
+    tagline: "Automotive Innovation Challenge",
+    descriptor: "Practical, affordable ideas for sustainable mobility.",
     image: "/images/track-automobile.png",
     href: "/problems#autohack",
   },
@@ -65,8 +66,8 @@ export const tracks: Track[] = [
     number: "02",
     title: "ChargeUp",
     discipline: "ChargeUp",
-    tagline: "Charging India's Future.",
-    descriptor: "E-mobility and clean energy: build it with circuits, code or both.",
+    tagline: "E-mobility and clean energy",
+    descriptor: "Build it with circuits, code or both.",
     image: "/images/track-eee.png",
     href: "/problems#chargeup",
   },
@@ -75,24 +76,26 @@ export const tracks: Track[] = [
     number: "03",
     title: "Buildathon",
     discipline: "Buildathon",
-    tagline: "Build. Simulate. Solve.",
-    descriptor: "Six real-world problems across monitoring, sustainability and geospatial analysis.",
+    tagline: "Monitoring, sustainability and geospatial",
+    descriptor: "Six problem statements across three themes.",
     image: "/images/track-civil.png",
     href: "/problems#buildathon",
   },
 ];
 
 export const journeySteps = [
-  { number: "01", title: "Explore", text: "Choose a track and explore real-world problem statements." },
-  { number: "02", title: "Register", text: "Form your team and complete your registration." },
-  { number: "03", title: "Build", text: "Work on your prototype with guidance from experts and mentors." },
-  { number: "04", title: "Submit", text: "Present your solution for evaluation." },
-  { number: "05", title: "Finalists", text: "Top teams advance to the Grand Finale." },
-  { number: "06", title: "Recognition", text: "Gain national recognition and showcase your innovation." },
+  // TODO(later): add dates to these steps once confirmed (registration deadline, submission deadline, Grand Finale).
+  { number: "01", title: "Explore", text: "Read the problem statements and pick a track." },
+  { number: "02", title: "Register", text: "Form a team of up to three and register." },
+  { number: "03", title: "Build", text: "Develop your prototype with guidance from mentors." },
+  { number: "04", title: "Submit", text: "Send in your solution for evaluation." },
+  { number: "05", title: "Finalists", text: "Top teams are invited to the Grand Finale." },
+  { number: "06", title: "Prizes", text: "Winners in each track share ₹1,00,000." },
 ];
 
+// Hardware support was removed (not provided any more).
+// TODO(later): add the mentor names or mentorship schedule here once confirmed.
 export const supportItems = [
-  { icon: "hardware", title: "Hardware", text: "Access to hardware boards and components for prototype development." },
   { icon: "mentorship", title: "Mentorship and Prototype Development", text: "Guidance from experts throughout the development journey for transforming ideas into working solutions." },
   { icon: "finale", title: "Grand Finale", text: "Opportunity to showcase your prototype at the national finale at CHRIST (Deemed to be University), Bangalore Kengeri Campus." },
 ] as const;

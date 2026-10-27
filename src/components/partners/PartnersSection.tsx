@@ -26,7 +26,7 @@ function Logo({ p }: { p: Partner }) {
 
 export function PartnersSection() {
   return (
-    <section className="section section--light bg-clean" id="partners" aria-labelledby="partners-title">
+    <section className="section section--light" data-surface="dark" id="partners" aria-labelledby="partners-title">
       <div className="container">
         <SectionHeading id="partners-title">SPONSORS AND PARTNERS</SectionHeading>
         <Reveal>
