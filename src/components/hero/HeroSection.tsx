@@ -38,10 +38,10 @@ export function HeroSection() {
               <span className="text-spectrum">NEXT.</span>
             </span>
           </h1>
-          <p className="t-body-lg hero__lead">Real problems. Real engineering. Real-world impact.</p>
+          <p className="t-body-lg hero__lead">A national challenge for Class 12 teams. Three tracks, up to ₹3 lakh in prizes.</p>
           <div className="hero__ctas">
-            <Button variant="accent" size="lg" disabled>Registration Coming Soon</Button>
-            <Button variant="outline-dark" size="lg" href={routes.challenge}>Explore the Challenge</Button>
+            <Button variant="accent" size="lg" disabled>Registration opens soon</Button>
+            <Button variant="outline-dark" size="lg" href={routes.tracks}>See the tracks</Button>
           </div>
         </div>
 

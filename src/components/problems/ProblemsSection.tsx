@@ -13,9 +13,9 @@ export function ProblemsIntro() {
     <section className="phero bg-spectrum--grid" data-surface="dark" aria-labelledby="problems-title">
       <div className="container">
         <p className="t-label eyebrow phero__eyebrow">Problem statements</p>
-        <h1 id="problems-title" className="t-h1 t-balance phero__title">Real problems. Pick yours.</h1>
+        <h1 id="problems-title" className="t-h1 t-balance phero__title">Pick a track and a problem.</h1>
         <p className="phero__lead">
-          Three tracks, {problemStatements.length} briefs, each taken from a real constraint in mobility, energy or infrastructure. Choose a track to see its problems and prizes.
+          {problemStatements.length} briefs across three tracks. Each track lists its problems and prizes.
         </p>
         <nav className="ppick" aria-label="Jump to a track">
           {tracks.map((t) => {
