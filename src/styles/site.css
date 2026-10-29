@@ -98,7 +98,9 @@ svg, img { display: block; max-width: 100%; }
 .nav__drawer-link { display: block; padding: var(--space-4) 0; border-bottom: 1px solid var(--nic-violet-line); font: var(--fw-medium) var(--fs-body-lg)/1.2 var(--font-body); color: var(--nav-link-fg-dark); }
 .nav__drawer-link:hover { color: var(--nic-white); }
 .logo { width: auto; height: 40px; }
-@media (min-width: 1024px) { .logo--header { height: 52px; } }
+.logo--header { height: 46px; }
+@media (min-width: 1024px) { .logo--header { height: 62px; } }
+:root { --nav-height: 80px; --nav-height-mobile: 64px; }
 .logo--footer { height: 72px; }
 .logo-ph {
   display: inline-grid; place-items: center; border: 1px dashed var(--color-border-strong); border-radius: var(--radius-sm);
@@ -134,6 +136,10 @@ svg, img { display: block; max-width: 100%; }
   mask-image: linear-gradient(to bottom, transparent 8%, #000 70%);
 }
 .hero__grid { display: grid; gap: var(--space-10); align-items: center; }
+/* first screen is just the title block; the stats sit below the fold */
+.hero__grid { min-height: calc(100svh - var(--nav-height-mobile) - var(--space-8) - 3rem); }
+.hero .hero-stats { margin-top: var(--space-12); }
+@media (min-width: 1024px) { .hero__grid { min-height: calc(100svh - var(--nav-height) - var(--space-10) - 3rem); } }
 .hero__eyebrow { max-width: 36ch; }
 .hero__title { display: grid; gap: 0; margin-bottom: var(--space-6); }
 .hero__line { display: block; }
@@ -309,7 +315,7 @@ svg, img { display: block; max-width: 100%; }
 .footer__top { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--nic-mist); transition: color var(--transition-standard); }
 .footer__top svg { transform: rotate(-90deg); }
 @media (min-width: 768px) { .footer__grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1024px) { .footer__grid { grid-template-columns: 1.3fr .8fr 1fr 1.2fr; } }
+@media (min-width: 1024px) { .footer__grid { grid-template-columns: 1.2fr 1fr; gap: var(--space-12); } .footer__brand { max-width: 40ch; } }
 
 /* ---------- track card pixel swap ---------- */
 .track-card__swap { position: absolute; inset: 0; height: 100%; }
@@ -448,11 +454,12 @@ body:has(dialog[open]) { overflow: hidden; }
 /* ---------- Section blends (home) ----------
    Each section opens with a soft fade from the colour of the section above,
    so dark/light changes read as a gradient instead of a hard edge. */
-#steps, #support, #register { --seam-h: 8rem; padding-top: calc(var(--section-y) + 3rem); }
+#prizes, #steps, #support, #register { --seam-h: 8rem; padding-top: calc(var(--section-y) + 3rem); }
 #steps { --seam-from: var(--nic-deep-violet); --seam-h: 6rem; padding-top: var(--section-y); }
 #support { --seam-from: var(--nic-deep-violet); --seam-h: 4rem; padding-top: var(--section-y); }
 #register { --seam-from: var(--nic-paper); }
-#steps::before, #support::before, #register::before {
+#prizes { --seam-from: var(--nic-paper); }
+#prizes::before, #steps::before, #support::before, #register::before {
   content: ""; position: absolute; inset: 0 0 auto 0; height: var(--seam-h); pointer-events: none; z-index: 0;
   background: linear-gradient(180deg,
     var(--seam-from) 0%,
@@ -462,7 +469,7 @@ body:has(dialog[open]) { overflow: hidden; }
     color-mix(in srgb, var(--seam-from) 6%, transparent) 90%,
     transparent 100%);
 }
-#steps > .container, #support > .container, #register > .container { position: relative; z-index: 1; }
+#prizes > .container, #steps > .container, #support > .container, #register > .container { position: relative; z-index: 1; }
 
 /* Hero dissolves into the paper section below: the fade lives in the hero so it starts from the artwork, not a flat band. */
 .hero { padding-bottom: calc(var(--space-10) + 7rem); }
@@ -606,8 +613,4 @@ a.partner-logo:hover { transform: translateY(var(--move-hover)); }
     transform: perspective(900px) translateY(var(--move-hover)) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
   }
   .track-card:hover .track-visual__img, .track-card:hover .track-visual__svg { transform: scale(1.05); }
-  .hero__visual .hero-visual__img {
-    transform: translate(calc(var(--px, 0) * -10px), calc(var(--py, 0) * -6px)) scale(1.04);
-    transition: transform 0.4s var(--ease-emphasis);
-  }
 }

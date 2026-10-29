@@ -1,5 +1,3 @@
-import { useRef } from "react";
-import { usePointerParallax } from "../../hooks/usePointerFx";
 import { routes } from "../../data/content";
 import GradientWaves from "../effects/GradientWaves";
 import { HeroVisual } from "../visuals/HeroVisual";
@@ -7,11 +5,8 @@ import { Button } from "../ui/Button";
 import { HeroStats } from "./HeroStats";
 
 export function HeroSection() {
-  const hero = useRef<HTMLElement>(null);
-  const visual = useRef<HTMLDivElement>(null);
-  usePointerParallax(hero, visual);
   return (
-    <section ref={hero} className="hero bg-spectrum--grid" id="top" aria-labelledby="hero-title">
+    <section className="hero bg-spectrum--grid" id="top" aria-labelledby="hero-title">
       <div className="hero__waves" aria-hidden="true">
         {/* canvas colours must be literals; they mirror --nic-indigo, --nic-electric-blue, --nic-cyan */}
         <GradientWaves
@@ -30,22 +25,19 @@ export function HeroSection() {
       </div>
       <div className="container hero__grid">
         <div className="hero__copy">
-          <p className="t-label eyebrow eyebrow--dark hero__eyebrow">A National Hardware Innovation Challenge</p>
           <h1 id="hero-title" className="t-display hero__title">
-            <span className="hero__line">BUILD</span>
-            <span className="hero__line">
-              <span className="hero__line-plain">WHAT&rsquo;S </span>
-              <span className="text-spectrum">NEXT.</span>
-            </span>
+            <span className="hero__line">NATIONAL</span>
+            <span className="hero__line">INNOVATION</span>
+            <span className="hero__line text-spectrum">CHALLENGE</span>
           </h1>
-          <p className="t-body-lg hero__lead">A national challenge for Class 12 teams. Three tracks, up to ₹3 lakh in prizes.</p>
+          <p className="t-body-lg hero__lead">A national challenge for Class 12 students. Choose one of three tracks, build a working solution, and compete for up to ₹3 lakh in prizes.</p>
           <div className="hero__ctas">
             <Button variant="accent" size="lg" disabled>Registration opens soon</Button>
             <Button variant="outline-dark" size="lg" href={routes.tracks}>See the tracks</Button>
           </div>
         </div>
 
-        <div className="hero__visual" ref={visual}>
+        <div className="hero__visual">
           <HeroVisual src="/images/hero-main.png" />
         </div>
       </div>

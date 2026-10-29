@@ -6,6 +6,8 @@ import "@fontsource-variable/inter";
 import "@fontsource-variable/jetbrains-mono";
 import "../nic.css";
 import "./styles/site.css";
+import "./styles/problems.css";
+import "./styles/ambient.css";
 import App from "./App";
 
 createRoot(document.getElementById("root")!).render(

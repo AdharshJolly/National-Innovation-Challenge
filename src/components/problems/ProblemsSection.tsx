@@ -1,6 +1,6 @@
-import { tracks } from "../../data/content";
+import { useEffect, useState } from "react";
+import { prizePool, tracks } from "../../data/content";
 import { problemStatements, trackEvents } from "../../data/problems";
-import { PrizePodium } from "../prizes/PrizePodium";
 import { Icon } from "../ui/Icon";
 import { Reveal } from "../ui/Reveal";
 import { ProblemCard } from "./ProblemCard";
@@ -10,13 +10,18 @@ export const trackAnchor = (name: string) => name.toLowerCase();
 
 export function ProblemsIntro() {
   return (
-    <section className="phero bg-spectrum--grid" data-surface="dark" aria-labelledby="problems-title">
+    <section className="phero" data-surface="dark" aria-labelledby="problems-title">
       <div className="container">
         <p className="t-label eyebrow phero__eyebrow">Problem statements</p>
         <h1 id="problems-title" className="t-h1 t-balance phero__title">Pick a track and a problem.</h1>
         <p className="phero__lead">
           {problemStatements.length} briefs across three tracks. Each track lists its problems and prizes.
         </p>
+        <dl className="phero__stats">
+          <div><dd>{problemStatements.length}</dd><dt className="t-label">Problem briefs</dt></div>
+          <div><dd>{tracks.length}</dd><dt className="t-label">Tracks</dt></div>
+          <div><dd>Class 12</dd><dt className="t-label">Eligibility</dt></div>
+        </dl>
         <nav className="ppick" aria-label="Jump to a track">
           {tracks.map((t) => {
             const count = problemStatements.filter((p) => p.track === t.id).length;
@@ -38,15 +43,53 @@ export function ProblemsIntro() {
   );
 }
 
+/** Sticky track switcher; the active chip follows whichever track block is on screen. */
+export function ProblemsNav() {
+  const [active, setActive] = useState<string | null>(null);
+
+  useEffect(() => {
+    const blocks = tracks.map((t) => document.getElementById(trackAnchor(t.title))).filter((el): el is HTMLElement => !!el);
+    if (typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) if (e.isIntersecting) setActive(e.target.id);
+      },
+      { rootMargin: "-35% 0px -55% 0px" },
+    );
+    blocks.forEach((b) => io.observe(b));
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <div className="pnav">
+      <nav className="pnav__inner container" aria-label="Tracks">
+        {tracks.map((t) => {
+          const id = trackAnchor(t.title);
+          return (
+            <a key={t.id} href={`#${id}`} data-track={t.id} className="pnav__chip" aria-current={active === id ? "true" : undefined}>
+              <span className="pnav__dot" aria-hidden="true" />
+              <span className="pnav__num">{t.number}</span>
+              {t.title}
+            </a>
+          );
+        })}
+      </nav>
+    </div>
+  );
+}
+
 export function TrackProblems({ trackId }: { trackId: (typeof tracks)[number]["id"] }) {
   const event = trackEvents.find((e) => e.id === trackId)!;
   const track = tracks.find((t) => t.id === trackId)!;
   const items = problemStatements.filter((p) => p.track === trackId);
   const anchor = trackAnchor(event.name);
+  // Alternate light and dark bands, as on the home page (hero above is dark).
+  const dark = tracks.findIndex((t) => t.id === trackId) % 2 === 1;
 
   return (
     <section
-      className="section section--light problems-track"
+      className={`section problems-track ${dark ? "bg-dark-technical" : "section--light bg-light-technical"}`}
+      data-surface={dark ? "dark" : undefined}
       id={anchor}
       data-track={trackId}
       aria-labelledby={`${anchor}-title`}
@@ -66,7 +109,20 @@ export function TrackProblems({ trackId }: { trackId: (typeof tracks)[number]["i
           </dl>
         </div>
 
-        <PrizePodium compact label={`${event.name} prize pool`} />
+        <div className="ptix" role="group" aria-label={`${event.name} prize pool`}>
+          <div className="ptix__main">
+            <p className="t-label ptix__kicker">Prize pool per track</p>
+            <p className="ptix__amount">{prizePool.total}</p>
+          </div>
+          <ol className="ptix__split">
+            {prizePool.places.map((pl, i) => (
+              <li key={pl.place}>
+                <span className="t-label">{pl.place}{i === 0 ? " · Winner" : ""}</span>
+                <strong>{pl.amount}</strong>
+              </li>
+            ))}
+          </ol>
+        </div>
 
         <ul className="problem-grid">
           {items.map((p, i) => (

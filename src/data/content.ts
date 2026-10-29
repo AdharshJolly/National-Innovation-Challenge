@@ -13,7 +13,7 @@ export const routes = {
 /** Same order as the sections on the home page. */
 export const navLinks = [
   { label: "Tracks", href: routes.tracks },
-  { label: "Problems", href: routes.problems },
+  { label: "Problem Statements", href: routes.problems },
   { label: "Prizes", href: routes.prizes },
   { label: "Steps", href: routes.steps },
   { label: "Contact", href: routes.contact },

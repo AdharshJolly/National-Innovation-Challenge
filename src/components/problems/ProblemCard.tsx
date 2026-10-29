@@ -34,7 +34,7 @@ export function ProblemCard({ p }: { p: ProblemStatement }) {
       {p.hook && <p className="problem__hook">{p.hook}</p>}
       <p className="problem__challenge">{p.challenge}</p>
       <button type="button" className="problem__open" onClick={() => dialog.current?.showModal()}>
-        View full brief <Icon name="arrow" size={18} />
+        View full brief <Icon name="arrow" size={16} />
       </button>
 
       <dialog

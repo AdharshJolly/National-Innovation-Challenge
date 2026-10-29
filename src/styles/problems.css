@@ -1,0 +1,142 @@
+/* /problems page. Same dark-violet palette as the home page; scoped to html.page-problems (set in App). */
+html.page-problems {
+  --track-glass: rgb(255 255 255 / 0.05);
+  body { background: var(--nic-deep-violet); }
+  .phero { background: transparent; color: var(--nic-white); }
+  [data-track] { --track-ink: color-mix(in srgb, var(--track-color) 55%, #fff); }
+  .problems-track[data-surface="dark"] .problem { background: var(--track-glass); border: 1px solid var(--nic-violet-line-strong); color: var(--nic-white); }
+  .problems-track[data-surface="dark"] .problem__title { color: var(--nic-white); }
+  .pmodal__panel, .pmodal { background: #1a0830; color: var(--nic-white); border-color: var(--nic-violet-line-strong); }
+
+
+  /* ---------- hero ---------- */
+  .phero { padding-bottom: var(--space-10); }
+  .phero__eyebrow { color: var(--nic-cyan-bright); }
+  .phero__title { font-size: clamp(2.75rem, 8vw, 6rem); line-height: 1; max-width: 14ch; }
+  .phero__lead { color: var(--nic-mist); }
+  .phero__stats { display: flex; flex-wrap: wrap; gap: var(--space-5) var(--space-10); margin: 0 0 var(--space-10); padding: 0; }
+  .phero__stats > div { display: flex; flex-direction: column; gap: var(--space-1); }
+  .phero__stats dd { margin: 0; font: 800 clamp(2rem, 4vw, 2.75rem)/1 var(--font-display); color: var(--nic-cyan-bright); }
+  .phero__stats dt { color: var(--nic-slate-on-dark); }
+  .ppick__item { border-color: var(--nic-violet-line-strong); border-bottom-width: 3px; }
+  .ppick__item:hover { transform: translateY(-4px); border-color: var(--track-color); }
+  .ppick__item:hover .ppick__img { transform: scale(1.06); opacity: 0.75; }
+  .ppick__item::before { background: linear-gradient(to top, rgb(26 8 48 / 0.96) 12%, rgb(26 8 48 / 0.25) 80%); }
+  .ppick__name { font-family: var(--font-display); font-weight: 800; }
+  .ppick__tag { color: var(--nic-mist); }
+  .ppick__count { display: inline-flex; align-items: center; gap: var(--space-2); margin-top: var(--space-2); color: var(--track-ink); font-weight: var(--fw-semibold); }
+  .ppick__count svg { transition: transform var(--transition-standard); }
+  .ppick__item:hover .ppick__count svg { transform: translateX(4px); }
+
+  /* ---------- sticky track switcher ---------- */
+  .pnav { position: sticky; top: var(--nav-height-mobile); z-index: 20; background: rgb(26 8 48 / 0.82); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-block: 1px solid var(--nic-violet-line-strong); }
+  @media (min-width: 1024px) { .pnav { top: var(--nav-height); } }
+  .pnav__inner { display: flex; gap: var(--space-2); padding-block: var(--space-2); overflow-x: auto; scrollbar-width: none; }
+  .pnav__inner::-webkit-scrollbar { display: none; }
+  .pnav__chip {
+    flex: none; display: inline-flex; align-items: center; gap: var(--space-2); min-height: 40px; padding: 0 var(--space-4);
+    border: 1px solid transparent; border-radius: var(--radius-pill); color: var(--nic-mist); font-weight: var(--fw-semibold); text-decoration: none;
+    transition: background var(--transition-standard), border-color var(--transition-standard), color var(--transition-standard);
+  }
+  .pnav__chip:hover { color: var(--nic-white); background: rgb(255 255 255 / 0.06); }
+  .pnav__chip[aria-current="true"] { color: var(--nic-white); background: rgb(255 255 255 / 0.1); border-color: var(--track-color); }
+  .pnav__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--track-color); }
+  .pnav__num { font-size: var(--fs-caption); color: var(--nic-slate-on-dark); font-variant-numeric: tabular-nums; }
+  .pnav__chip:focus-visible { outline: 2px solid var(--nic-cyan-bright); outline-offset: 2px; }
+
+  /* ---------- track header ---------- */
+  .problems-track { scroll-margin-top: calc(var(--nav-height-mobile) + 56px); padding-block: var(--space-10) var(--space-12, 6rem); }
+  @media (min-width: 1024px) { .problems-track { scroll-margin-top: calc(var(--nav-height) + 56px); } }
+  .pevent { gap: var(--space-5); padding-bottom: var(--space-6); }
+  @media (min-width: 1024px) { .pevent { grid-template-columns: 1fr; } }
+  .pevent__ghost { font-family: var(--font-display); font-weight: 800; color: color-mix(in srgb, var(--track-color) 12%, transparent); }
+  .pevent__kicker { color: var(--nic-cyan-bright); letter-spacing: 0.16em; }
+  .pevent__name { font-size: clamp(2.5rem, 7vw, 4.5rem); line-height: 1; }
+  .pevent__theme { color: var(--nic-mist); margin-top: var(--space-3); }
+  .pevent__facts { gap: var(--space-2); padding-left: 0; border-left: 0; }
+  .pevent__facts > div { display: inline-flex; align-items: baseline; gap: var(--space-2); padding: 0.4rem 0.85rem; border: 1px solid var(--nic-violet-line-strong); border-radius: var(--radius-pill); background: rgb(255 255 255 / 0.03); }
+  .pevent__facts dt { color: var(--nic-slate-on-dark); letter-spacing: 0.08em; }
+  .pevent__facts dd { margin: 0; color: var(--nic-white); font-size: 0.9rem; max-width: none; order: -1; }
+
+  /* ---------- prize ticket strip ---------- */
+  .ptix { display: grid; margin-bottom: var(--space-8); border-radius: 16px; color: var(--nic-deep-violet); background: linear-gradient(135deg, #22d3ee, #06b6d4 60%, #4f46e5); box-shadow: 0 24px 60px -24px rgb(0 0 0 / 0.65); }
+  .ptix__main { padding: var(--space-5) var(--space-6); }
+  .ptix__kicker { margin: 0; color: var(--nic-deep-violet); opacity: 0.7; }
+  .ptix__amount { margin: var(--space-1) 0 0; font: 800 clamp(2.4rem, 8vw, 3.6rem)/1 var(--font-display); }
+  .ptix__split { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 2px dashed rgb(26 8 48 / 0.4); }
+  .ptix__split li { display: flex; flex-direction: column; gap: 0.25rem; padding: var(--space-4); border-left: 2px dashed rgb(26 8 48 / 0.25); }
+  .ptix__split li:first-child { border-left: 0; }
+  .ptix__split .t-label { color: var(--nic-deep-violet); opacity: 0.7; font-size: 0.68rem; }
+  .ptix__split strong { font-family: var(--font-display); font-size: clamp(1rem, 4.2vw, 1.25rem); line-height: 1.1; }
+  @media (min-width: 760px) {
+    .ptix { grid-template-columns: 1fr 1.3fr; }
+    .ptix__main { display: flex; flex-direction: column; justify-content: center; padding: var(--space-6) var(--space-8); }
+    .ptix__split { border-top: 0; border-left: 2px dashed rgb(26 8 48 / 0.4); }
+    .ptix__split li { justify-content: center; padding-inline: var(--space-6); }
+  }
+
+  /* ---------- problem cards (grid layout from site.css, glass skin here) ---------- */
+  .problem-grid { gap: var(--space-4); }
+  @media (min-width: 768px) { .problem-grid { gap: var(--space-5); } }
+  .problem { padding: var(--space-6) var(--space-6) var(--space-5); border-radius: 18px; border-top: 1px solid var(--nic-violet-line-strong); gap: var(--space-2); }
+  .problem::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: var(--track-color); }
+  .problem:hover { box-shadow: 0 20px 50px -20px rgb(0 0 0 / 0.7); }
+  .problem__num { order: 0; align-self: flex-start; margin: 0; font: 700 0.85rem/1 var(--font-display); letter-spacing: 0.1em; color: var(--track-color); }
+  .problem__theme { color: var(--nic-slate-on-dark); max-width: none; }
+  .problem__title { font-size: 1.2rem; line-height: 1.2; }
+  .problem__hook { color: var(--nic-cyan-bright); }
+  .problem__challenge { color: var(--nic-mist); font-size: 0.92rem; margin-bottom: var(--space-3); }
+  .problem__open { align-self: flex-start; justify-content: flex-start; min-height: 44px; padding: 0; border: 0; background: none; color: var(--nic-cyan-bright); font-size: 0.9rem; font-weight: 700; }
+  .problem__open svg { transition: transform var(--transition-standard); }
+  .problem__open:hover { background: none; color: var(--nic-white); }
+  .problem__open:hover svg { transform: translateX(4px); }
+  .problem__open:focus-visible { outline: 2px solid var(--nic-cyan-bright); outline-offset: 4px; border-radius: 4px; }
+
+  .problems-track[data-surface="dark"] { background-color: var(--nic-deep-violet); border-top-color: var(--nic-violet-line-strong); color: var(--nic-white); }
+  .problems-track[data-surface="dark"] :is(h2, h3) { color: var(--nic-white); }
+
+  /* ---------- light tracks (alternate with the dark ones, like the home page) ---------- */
+  .problems-track:not([data-surface="dark"]) {
+    --track-ink: color-mix(in srgb, var(--track-color) 75%, #000);
+    background: var(--nic-white);
+    .pevent__ghost { color: color-mix(in srgb, var(--track-color) 14%, transparent); }
+    .pevent__kicker { color: var(--track-ink); }
+    .pevent__name { color: var(--nic-deep-violet); }
+    .pevent__theme { color: var(--nic-graphite); opacity: 0.8; }
+    .pevent__facts > div { border-color: var(--color-border); background: var(--nic-white); }
+    .pevent__facts dt { color: var(--nic-graphite); opacity: 0.65; }
+    .pevent__facts dd { color: var(--nic-deep-violet); }
+    .ptix { box-shadow: 0 24px 50px -28px rgb(26 8 48 / 0.45); }
+    .problem { background: var(--nic-white); border: 1px solid var(--color-border); color: var(--nic-graphite); box-shadow: 0 1px 2px rgb(26 8 48 / 0.04); }
+    .problem:hover { box-shadow: 0 20px 44px -22px rgb(26 8 48 / 0.35); }
+    .problem__title { color: var(--nic-deep-violet); }
+    .problem__theme { color: var(--nic-graphite); opacity: 0.65; }
+    .problem__hook { color: #0e7490; }
+    .problem__challenge { color: var(--nic-graphite); }
+    .problem__open { color: #4f46e5; }
+    .problem__open:hover { color: var(--nic-deep-violet); }
+    .problem__open:focus-visible { outline-color: #4f46e5; }
+  }
+
+  /* ---------- modal ---------- */
+  .pmodal { width: min(780px, calc(100vw - var(--space-6))); background: #1a0830; border: 1px solid var(--nic-violet-line-strong); border-top: 4px solid var(--track-color); box-shadow: 0 30px 100px rgb(0 0 0 / 0.6), 0 0 80px color-mix(in srgb, var(--track-color) 18%, transparent); }
+  .pmodal::backdrop { background: rgb(14 4 28 / 0.78); }
+  .pmodal__panel { padding: 0; gap: 0; background: transparent; }
+  .pmodal__head { position: sticky; top: 0; z-index: 1; padding: var(--space-6) var(--space-8); background: #1a0830; border-bottom: 1px solid var(--nic-violet-line-strong); }
+  .pmodal__head h2 { font-size: clamp(1.6rem, 3.4vw, 2.25rem); line-height: 1.1; color: var(--nic-white); }
+  .pmodal__head .problem__hook { margin-top: var(--space-2); }
+  .pmodal__kicker { color: var(--track-ink); }
+  .pmodal__close { background: rgb(255 255 255 / 0.06); border-color: var(--nic-violet-line-strong); color: var(--nic-white); }
+  .pmodal__close:hover { background: var(--track-color); }
+  .pmodal__body { padding: var(--space-6) var(--space-8) var(--space-8); gap: var(--space-5); }
+  .pmodal__detail { border-top-color: var(--nic-violet-line-strong); }
+  .pmodal__detail:first-child { border-top: 0; padding-top: 0; }
+  .pmodal__detail dt { color: var(--nic-cyan-bright); }
+  .pmodal__detail dd { color: var(--nic-mist); }
+  .pmodal .chips li { background: color-mix(in srgb, var(--track-color) 20%, transparent); color: var(--track-ink); border: 1px solid color-mix(in srgb, var(--track-color) 45%, transparent); }
+  @media (max-width: 599px) {
+    .pmodal { max-height: calc(100dvh - var(--space-4)); }
+    .pmodal__head, .pmodal__body { padding-inline: var(--space-5); }
+  }
+
+}
