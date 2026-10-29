@@ -62,9 +62,10 @@ function Badge({ c, index }: { c: Coordinator; index: number }) {
 
 export function ContactSection() {
   return (
-    <section className="section section--light bg-light-technical" id="contact" aria-labelledby="contact-title">
+    <section className="section section--light bg-light-technical contact" id="contact" aria-labelledby="contact-title">
       <div className="container">
-        <SectionHeading id="contact-title">GET IN TOUCH WITH THE TEAM</SectionHeading>
+        <SectionHeading id="contact-title">CONTACT US</SectionHeading>
+        <Reveal as="p" className="t-body-lg section-lead">Have a question or need assistance? Reach out to our coordination team.</Reveal>
         <Reveal>
           <div className="contact-rail">
             <ul className="contact-badges">

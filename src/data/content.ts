@@ -141,12 +141,10 @@ export interface Partner {
   /** Logo intrinsic size, to avoid layout shift. */
   width: number;
   height: number;
-  /** Row label the logo sits under, e.g. "In collaboration" or "Sponsors". Same tier text = same row. */
-  tier?: string;
   href?: string;
 }
 
 /** Add a sponsor or partner here and it appears in the Partners section. */
 export const partners: Partner[] = [
-  { name: "C-DAC", logo: "/images/CDAC.svg", width: 345, height: 247, tier: "In collaboration" },
+  { name: "C-DAC", logo: "/images/CDAC.svg", width: 345, height: 247 },
 ];

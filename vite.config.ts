@@ -1,13 +1,19 @@
 /// <reference types="vitest/config" />
-import { cpSync, mkdirSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { defineConfig } from "vite";
 import type { Plugin } from "vite";
 import react from "@vitejs/plugin-react";
+import { SEO_END, SEO_START, headFor, pages, robotsTxt, sitemapXml } from "./src/seo/meta";
 
-/** Real paths that render the app, so they load on hosts with no SPA fallback rule. */
-const appRoutes = ["problems"];
+const seoBlock = new RegExp(`${SEO_START}[\\s\\S]*?${SEO_END}`);
+const withHead = (html: string, i: number) => html.replace(seoBlock, () => headFor(pages[i]));
 
-/** Copies index.html to each route folder and 404.html after the build. */
+/** Fills the home page's <head> from src/seo/meta.ts in dev and build. */
+function seoHead(): Plugin {
+  return { name: "seo-head", transformIndexHtml: (html) => withHead(html, 0) };
+}
+
+/** Writes each route as a real file with its own head (hosts with no SPA fallback still serve it), plus 404.html, robots.txt and sitemap.xml. */
 function staticRoutes(): Plugin {
   let outDir = "dist";
   return {
@@ -15,17 +21,21 @@ function staticRoutes(): Plugin {
     apply: "build",
     configResolved: (c) => { outDir = c.build.outDir; },
     closeBundle() {
-      for (const r of appRoutes) {
-        mkdirSync(`${outDir}/${r}`, { recursive: true });
-        cpSync(`${outDir}/index.html`, `${outDir}/${r}/index.html`);
-      }
-      cpSync(`${outDir}/index.html`, `${outDir}/404.html`);
+      const html = readFileSync(`${outDir}/index.html`, "utf8");
+      pages.forEach((p, i) => {
+        if (p.path === "/") return;
+        mkdirSync(`${outDir}${p.path}`, { recursive: true });
+        writeFileSync(`${outDir}${p.path}/index.html`, withHead(html, i));
+      });
+      writeFileSync(`${outDir}/404.html`, html);
+      writeFileSync(`${outDir}/robots.txt`, robotsTxt);
+      writeFileSync(`${outDir}/sitemap.xml`, sitemapXml());
     },
   };
 }
 
 export default defineConfig({
-  plugins: [react(), staticRoutes()],
+  plugins: [react(), seoHead(), staticRoutes()],
   test: {
     environment: "jsdom",
     globals: true,

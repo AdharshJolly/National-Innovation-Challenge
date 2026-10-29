@@ -568,22 +568,16 @@ a.badge__link:focus-visible { outline: 2px solid var(--nic-cyan-bright, var(--ni
 .podium--compact { gap: var(--space-4); padding: var(--card-pad); }
 
 
-/* Partners: one panel, one row per tier. Extra tiers and logos flow in from `partners` */
-.partner-panel { margin-top: var(--space-10); background: var(--nic-white); border: var(--card-border); border-radius: var(--card-radius); overflow: hidden; }
-.partner-tier { display: grid; }
-.partner-tier + .partner-tier { border-top: var(--card-border); }
-.partner-tier__name { margin: 0; padding: var(--space-5) var(--card-pad) 0; color: var(--nic-slate); display: flex; align-items: center; gap: var(--space-3); }
-.partner-tier__name::before { content: ""; width: 1.5rem; height: 2px; background: var(--nic-electric-blue); }
-.partner-logos { list-style: none; margin: 0; padding: var(--space-4) var(--card-pad) var(--space-6); display: grid; gap: var(--space-4) var(--space-8); grid-template-columns: repeat(auto-fill, minmax(min(100%, 12rem), 1fr)); align-items: center; justify-items: start; }
-.partner-logo { display: inline-flex; padding: var(--space-3) 0; color: inherit; text-decoration: none; border-radius: var(--card-radius); transition: transform var(--transition-emphasis), opacity var(--transition-standard); }
-a.partner-logo:hover { transform: translateY(var(--move-hover)); }
-.partner-logo img { display: block; width: auto; height: 72px; max-width: 100%; object-fit: contain; }
-@media (min-width: 768px) {
-  .partner-tier { grid-template-columns: 13rem 1fr; align-items: center; }
-  .partner-tier__name { padding: var(--space-6) var(--space-4) var(--space-6) var(--card-pad); align-self: stretch; }
-  .partner-logos { padding: var(--space-6) var(--card-pad) var(--space-6) 0; }
-  .partner-logo img { height: 80px; }
-}
+/* Partners: centred heading, then free-floating uniform logo cells that wrap and centre. Add logos in `partners` */
+.partners .section-heading, .contact .section-heading { margin-inline: auto; text-align: center; }
+.partners .section-heading h2, .contact .section-heading h2 { margin-inline: auto; }
+.section-lead { margin: var(--space-3) auto 0; max-width: 40rem; text-align: center; color: var(--nic-slate); }
+.partner-logos { list-style: none; margin: var(--space-8) 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: var(--space-8); }
+.partner-logo { display: flex; align-items: center; justify-content: center; width: 9rem; height: 6rem; color: inherit; text-decoration: none; transition: transform var(--transition-emphasis); }
+.partner-logo:hover { transform: scale(1.1); }
+.partner-logo img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; }
+@media (min-width: 768px) { .partner-logos { gap: var(--space-10); } }
+@media (prefers-reduced-motion: reduce) { .partner-logo:hover { transform: none; } }
 
 /* ---------- prize pool ticket (home) ---------- */
 .prize { overflow: hidden; background: var(--nic-deep-violet); padding-block: calc(var(--section-y) + 1rem); }
