@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { tracks } from "../../data/content";
+import { prizePool, tracks } from "../../data/content";
 import { problemStatements, trackEvents } from "../../data/problems";
-import { PrizePodium } from "../prizes/PrizePodium";
 import { Icon } from "../ui/Icon";
 import { Reveal } from "../ui/Reveal";
 import { ProblemCard } from "./ProblemCard";
@@ -107,7 +106,20 @@ export function TrackProblems({ trackId }: { trackId: (typeof tracks)[number]["i
           </dl>
         </div>
 
-        <PrizePodium compact label={`${event.name} prize pool`} />
+        <div className="ptix" role="group" aria-label={`${event.name} prize pool`}>
+          <div className="ptix__main">
+            <p className="t-label ptix__kicker">Prize pool per track</p>
+            <p className="ptix__amount">{prizePool.total}</p>
+          </div>
+          <ol className="ptix__split">
+            {prizePool.places.map((pl, i) => (
+              <li key={pl.place}>
+                <span className="t-label">{pl.place}{i === 0 ? " · Winner" : ""}</span>
+                <strong>{pl.amount}</strong>
+              </li>
+            ))}
+          </ol>
+        </div>
 
         <ul className="problem-grid">
           {items.map((p, i) => (

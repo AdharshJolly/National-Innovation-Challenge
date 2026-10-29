@@ -39,22 +39,50 @@
 .problems-track, .problems-track:nth-of-type(odd) { background: transparent; }
 .problems-track { scroll-margin-top: calc(var(--nav-height-mobile) + 56px); padding-block: var(--space-10) var(--space-12, 6rem); }
 @media (min-width: 1024px) { .problems-track { scroll-margin-top: calc(var(--nav-height) + 56px); } }
-.pevent__ghost { font-family: var(--font-poster); font-weight: 400; color: color-mix(in srgb, var(--track-color) 16%, transparent); }
-.pevent__kicker { color: var(--track-ink); }
-.pevent__name { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1; }
-.pevent__theme { color: #cfc6ee; }
-.pevent__facts { border-left-color: var(--track-color); }
-.pevent__facts dt { color: #b8add9; }
-.pevent__facts dd { color: var(--nic-white); }
+.pevent { gap: var(--space-5); padding-bottom: var(--space-6); }
+@media (min-width: 1024px) { .pevent { grid-template-columns: 1fr; } }
+.pevent__ghost { font-family: var(--font-poster); font-weight: 400; color: color-mix(in srgb, var(--track-color) 12%, transparent); }
+.pevent__kicker { color: var(--poster-gold-bright); letter-spacing: 0.16em; }
+.pevent__name { font-size: clamp(2.5rem, 7vw, 4.5rem); line-height: 1; }
+.pevent__theme { color: #cfc6ee; margin-top: var(--space-3); }
+.pevent__facts { gap: var(--space-2); padding-left: 0; border-left: 0; }
+.pevent__facts > div { display: inline-flex; align-items: baseline; gap: var(--space-2); padding: 0.4rem 0.85rem; border: 1px solid var(--track-glass-line); border-radius: var(--radius-pill); background: rgb(255 255 255 / 0.03); }
+.pevent__facts dt { color: #b8add9; letter-spacing: 0.08em; }
+.pevent__facts dd { margin: 0; color: var(--nic-white); font-size: 0.9rem; max-width: none; order: -1; }
+
+/* ---------- gold ticket prize strip ---------- */
+.ptix { display: grid; margin-bottom: var(--space-8); border-radius: 16px; color: var(--poster-ink); background: linear-gradient(135deg, var(--poster-gold-bright), var(--poster-gold) 60%, var(--poster-gold-deep)); box-shadow: 0 24px 60px -24px rgb(0 0 0 / 0.65); }
+.ptix__main { padding: var(--space-5) var(--space-6); }
+.ptix__kicker { margin: 0; color: var(--poster-ink); opacity: 0.7; }
+.ptix__amount { margin: var(--space-1) 0 0; font: 400 clamp(2.4rem, 8vw, 3.6rem)/1 var(--font-poster); }
+.ptix__split { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 2px dashed rgb(26 15 74 / 0.4); }
+.ptix__split li { display: flex; flex-direction: column; gap: 0.25rem; padding: var(--space-4); border-left: 2px dashed rgb(26 15 74 / 0.25); }
+.ptix__split li:first-child { border-left: 0; }
+.ptix__split .t-label { color: var(--poster-ink); opacity: 0.7; font-size: 0.68rem; }
+.ptix__split strong { font-family: var(--font-heading); font-size: clamp(1rem, 4.2vw, 1.25rem); line-height: 1.1; }
+@media (min-width: 760px) {
+  .ptix { grid-template-columns: 1fr 1.3fr; }
+  .ptix__main { display: flex; flex-direction: column; justify-content: center; padding: var(--space-6) var(--space-8); }
+  .ptix__split { border-top: 0; border-left: 2px dashed rgb(26 15 74 / 0.4); }
+  .ptix__split li { justify-content: center; padding-inline: var(--space-6); }
+}
 
 /* ---------- problem cards (grid layout from site.css, glass skin from poster.css) ---------- */
-.problems-track .podium { margin-bottom: var(--space-10); }
+.problem-grid { gap: var(--space-4); }
+@media (min-width: 768px) { .problem-grid { gap: var(--space-5); } }
+.problem { padding: var(--space-6) var(--space-6) var(--space-5); border-radius: 18px; border-top: 1px solid var(--track-glass-line); gap: var(--space-2); }
+.problem::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: var(--track-color); }
+.problem:hover { box-shadow: 0 20px 50px -20px rgb(0 0 0 / 0.7); }
+.problem__num { order: 0; align-self: flex-start; margin: 0; font: 700 0.85rem/1 var(--font-heading); letter-spacing: 0.1em; color: var(--track-color); }
+.problem__theme { color: #b8add9; max-width: none; }
+.problem__title { font-size: 1.2rem; line-height: 1.2; }
 .problem__hook { color: var(--poster-gold-bright); }
-.problem__challenge { color: #cfc6ee; }
-.problem__num { color: color-mix(in srgb, var(--track-color) 40%, transparent); }
-.problem__open { color: var(--nic-white); border-color: var(--track-glass-line); background: rgb(255 255 255 / 0.04); }
-.problem__open:hover { background: var(--track-color); border-color: var(--track-color); }
-.problem__open:focus-visible { outline: 2px solid var(--poster-gold-bright); outline-offset: 2px; }
+.problem__challenge { color: #cfc6ee; font-size: 0.92rem; margin-bottom: var(--space-3); }
+.problem__open { align-self: flex-start; justify-content: flex-start; min-height: 44px; padding: 0; border: 0; background: none; color: var(--poster-gold-bright); font-size: 0.9rem; font-weight: 700; }
+.problem__open svg { transition: transform var(--transition-standard); }
+.problem__open:hover { background: none; color: var(--nic-white); }
+.problem__open:hover svg { transform: translateX(4px); }
+.problem__open:focus-visible { outline: 2px solid var(--poster-gold-bright); outline-offset: 4px; border-radius: 4px; }
 
 /* ---------- modal ---------- */
 .pmodal { width: min(780px, calc(100vw - var(--space-6))); background: #120838; border: 1px solid var(--track-glass-line); border-top: 4px solid var(--track-color); box-shadow: 0 30px 100px rgb(0 0 0 / 0.6), 0 0 80px color-mix(in srgb, var(--track-color) 18%, transparent); }

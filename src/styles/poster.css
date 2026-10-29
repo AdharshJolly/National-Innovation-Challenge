@@ -66,6 +66,16 @@ a:not(.btn):hover { color: var(--poster-gold-bright); }
 .hero__year { color: #ffe9ee; }
 .hero__lead { color: #d8d0f5; max-width: 40ch; margin: 0; letter-spacing: 0.04em; }
 .hero__ctas { justify-content: center; }
+/* mobile: the first screen is just the title block; the stats sit below the fold */
+@media (max-width: 767px) {
+  .hero { min-height: 0; grid-template-rows: auto auto; padding-top: calc(var(--nav-height-mobile) + var(--space-4)); }
+  .hero__copy { min-height: calc(100svh - var(--nav-height-mobile) - var(--space-4) - 3.5rem); gap: var(--space-4); }
+  .hero .hero-stats { margin-top: 4rem; }
+  .hero__title { font-size: clamp(2.9rem, 12.2vw, 4.5rem); }
+  .hero__org { font-size: 1.05rem; }
+  .hero__presents { font-size: 0.8rem; }
+  .hero__lead { font-size: 1.1rem; }
+}
 .hero-stats { border-color: rgb(242 182 60 / 0.3); background: rgb(19 10 56 / 0.55); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
 .hero-stats__icon { background: rgb(242 182 60 / 0.14); color: var(--poster-gold-bright); }
 .hero-stats__item + .hero-stats__item { border-left-color: rgb(242 182 60 / 0.25); }
