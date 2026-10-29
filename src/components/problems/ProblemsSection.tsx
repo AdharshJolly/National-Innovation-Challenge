@@ -95,7 +95,7 @@ export function TrackProblems({ trackId }: { trackId: (typeof tracks)[number]["i
       aria-labelledby={`${anchor}-title`}
     >
       <div className="container">
-        <div className="pevent">
+        <Reveal className="pevent">
           <span className="pevent__ghost" aria-hidden="true">{track.number}</span>
           <div className="pevent__main">
             <p className="t-label pevent__kicker">Track {track.number} · {event.tagline}</p>
@@ -107,9 +107,9 @@ export function TrackProblems({ trackId }: { trackId: (typeof tracks)[number]["i
             <div><dt className="t-label">Who can enter</dt><dd>{event.eligibility}</dd></div>
             <div><dt className="t-label">Team size</dt><dd>{event.teamSize}</dd></div>
           </dl>
-        </div>
+        </Reveal>
 
-        <div className="ptix" role="group" aria-label={`${event.name} prize pool`}>
+        <Reveal className="ptix" delay={1}>
           <div className="ptix__main">
             <p className="t-label ptix__kicker">Prize pool per track</p>
             <p className="ptix__amount">{prizePool.total}</p>
@@ -122,7 +122,7 @@ export function TrackProblems({ trackId }: { trackId: (typeof tracks)[number]["i
               </li>
             ))}
           </ol>
-        </div>
+        </Reveal>
 
         <ul className="problem-grid">
           {items.map((p, i) => (
