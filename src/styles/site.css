@@ -234,8 +234,9 @@ svg, img { display: block; max-width: 100%; }
 }
 
 /* ---------- how it works: sticky stacking step cards ---------- */
-.how__head { display: grid; gap: var(--space-4); margin-bottom: var(--space-12); align-items: end; }
-.how__lead { color: var(--nic-mist); max-width: var(--measure-narrow); }
+.how__head { margin-bottom: 3rem; max-width: 40rem; }
+.how__title { margin: 0 0 .75rem; font-size: clamp(1.75rem, 4.5vw, 3rem); line-height: 1; text-transform: none; letter-spacing: -.02em; }
+.how__lead { margin: 0; color: var(--nic-mist); font-size: 1.125rem; max-width: 30ch; }
 .how-stack { display: grid; gap: 2.5rem; }
 .how-stack__card {
   position: sticky; top: calc(5.5rem + var(--i) * 1.25rem);
@@ -268,7 +269,6 @@ svg, img { display: block; max-width: 100%; }
   .how-stack__top { top: 2rem; left: 3rem; }
   .how-stack__bar span { width: 1.5rem; }
 }
-@media (min-width: 768px) { .how__head { grid-template-columns: 1fr 1fr; gap: var(--space-12); } }
 
 /* ---------- support: what you take home ---------- */
 .support-sec { background: var(--nic-deep-violet); }
