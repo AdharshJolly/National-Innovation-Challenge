@@ -233,7 +233,6 @@ svg, img { display: block; max-width: 100%; }
 /* ---------- support ---------- */
 
 /* ---------- final CTA ---------- */
-@media (min-width: 768px) { 
 /* ---------- footer ---------- */
 .footer { position: relative; overflow: hidden; isolation: isolate; background: #12051F; color: var(--nic-mist); padding-top: var(--space-10); }
 .footer::before { content: ""; position: absolute; inset: 0 0 auto; height: 1px; background: linear-gradient(90deg, transparent, var(--nic-cyan) 30%, var(--nic-cyan) 70%, transparent); opacity: .6; }
