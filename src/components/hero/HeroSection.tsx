@@ -10,6 +10,7 @@ export function HeroSection() {
           Industry Institute Interaction Cell (IIIC)
           <br />
           School of Engineering and Technology
+          <span className="hero__presents">presents</span>
         </p>
         <h1 id="hero-title" className="hero__title">
           <span className="hero__gold">National</span>
