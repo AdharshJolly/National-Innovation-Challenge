@@ -581,18 +581,29 @@ a.badge__link:focus-visible { outline: 2px solid var(--nic-cyan-bright, var(--ni
 
 /* ---------- prize pool ticket (home) ---------- */
 .prize { overflow: hidden; background: var(--nic-deep-violet); padding-block: calc(var(--section-y) + 1rem); }
-.prize__cheque { display: grid; max-width: 62rem; margin-inline: auto; border-radius: 14px; color: var(--nic-deep-violet); background: linear-gradient(135deg, #22d3ee, #06b6d4 60%, #4f46e5); box-shadow: 0 24px 60px -20px rgb(0 0 0 / .5); transform: rotate(-1.2deg); }
-.prize__main { display: grid; gap: .25rem; padding: clamp(1.5rem, 4vw, 3rem); }
+.prize__cheque { position: relative; display: grid; max-width: 62rem; margin-inline: auto; border-radius: 16px; color: var(--nic-deep-violet); background: linear-gradient(135deg, #22d3ee, #06b6d4 60%, #4f46e5); box-shadow: 0 24px 60px -20px rgb(0 0 0 / .5); transform: rotate(-1.2deg); }
+/* inner stitched border */
+.prize__cheque::before { content: ""; position: absolute; inset: .625rem; border: 1.5px solid rgb(26 8 48 / .35); border-radius: 10px; pointer-events: none; }
+/* side notches, cut out in the section colour */
+.prize__cheque::after { display: none; content: ""; position: absolute; top: 50%; left: 0; right: 0; height: 28px; margin-top: -14px; pointer-events: none; background: radial-gradient(circle 14px at 0 50%, var(--nic-deep-violet) 13.5px, transparent 14px) left / 14px 100% no-repeat, radial-gradient(circle 14px at 100% 50%, var(--nic-deep-violet) 13.5px, transparent 14px) right / 14px 100% no-repeat; }
+.prize__main { position: relative; display: grid; gap: .25rem; padding: clamp(1.5rem, 4vw, 3rem); }
 .prize__label { margin: 0; font-family: "Unbounded Variable", var(--font-display); font-size: clamp(1.25rem, 3.2vw, 2rem); font-weight: 700; line-height: 1.1; letter-spacing: -.02em; color: var(--nic-deep-violet); }
 .prize__amount { margin: .5rem 0 0; font-family: "Unbounded Variable", var(--font-display); font-weight: 800; font-size: clamp(2.5rem, 9vw, 5.75rem); line-height: 1; letter-spacing: -.05em; color: var(--nic-deep-violet); }
 .prize__upto { display: block; margin-bottom: .5rem; font-family: var(--font-body); font-size: .875rem; font-weight: 700; line-height: 1; letter-spacing: .14em; text-transform: uppercase; opacity: .75; }
 .prize__split { margin: .75rem 0 0; max-width: 28ch; font-size: clamp(1.0625rem, 2.4vw, 1.375rem); font-weight: 600; line-height: 1.25; }
-.prize__stub { display: grid; gap: .75rem; justify-items: start; align-content: center; padding: clamp(1.5rem, 4vw, 2.5rem); border-top: 2px dashed rgb(26 8 48 / .4); }
+.prize__stub { position: relative; display: grid; gap: .75rem; justify-items: start; align-content: center; padding: clamp(1.5rem, 4vw, 2.5rem); border-top: 2px dashed rgb(26 8 48 / .45); }
+/* perforation notches */
+.prize__stub::before, .prize__stub::after { content: ""; position: absolute; width: 28px; height: 28px; border-radius: 50%; background: var(--nic-deep-violet); }
+.prize__stub::before { top: -15px; left: -14px; }
+.prize__stub::after { top: -15px; right: -14px; }
 .prize__stubtext { margin: 0; font-size: 1rem; font-weight: 700; line-height: 1.35; }
 .prize__link { color: var(--nic-deep-violet); font-weight: 700; }
 @media (min-width: 768px) {
   .prize__cheque { grid-template-columns: 1fr 17rem; }
-  .prize__stub { border-top: 0; border-left: 2px dashed rgb(26 8 48 / .4); }
+  .prize__cheque::after { display: block; }
+  .prize__stub { border-top: 0; border-left: 2px dashed rgb(26 8 48 / .45); }
+  .prize__stub::before { top: -14px; left: -15px; }
+  .prize__stub::after { top: auto; right: auto; bottom: -14px; left: -15px; }
 }
 
 /* ---------- pointer interactions (mouse + motion allowed only) ---------- */
