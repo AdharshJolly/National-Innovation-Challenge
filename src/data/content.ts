@@ -20,10 +20,10 @@ export const navLinks = [
 ];
 
 export const heroStats = [
-  { icon: "trophy", value: "Up to ₹3 Lakh", label: "Total prize pool", countUp: true },
-  { icon: "tracks", value: "3", label: "Tracks", countUp: true },
-  { icon: "mentorship", value: "Up to 3", label: "Members per team", countUp: true },
-  { icon: "explore", value: "Class 12", label: "Eligibility", countUp: false },
+  { icon: "trophy", value: "Up to ₹3 Lakh", label: "Total prize pool" },
+  { icon: "tracks", value: "3", label: "Tracks" },
+  { icon: "mentorship", value: "3–4", label: "Members per team" },
+  { icon: "explore", value: "Class 12 Science", label: "Eligibility" },
   // TODO(later): add stats once confirmed, e.g. registration fee, number of finalists, Grand Finale date.
 ] as const;
 
@@ -86,7 +86,7 @@ export const tracks: Track[] = [
 export const journeySteps = [
   // TODO(later): add dates to these steps once confirmed (registration deadline, submission deadline, Grand Finale).
   { number: "01", title: "Explore", text: "Read the problem statements and pick a track." },
-  { number: "02", title: "Register", text: "Form a team of up to three and register." },
+  { number: "02", title: "Register", text: "Form a team of three or four and register." },
   { number: "03", title: "Build", text: "Develop your prototype with guidance from mentors." },
   { number: "04", title: "Submit", text: "Send in your solution for evaluation." },
   { number: "05", title: "Finalists", text: "Top teams are invited to the Grand Finale." },

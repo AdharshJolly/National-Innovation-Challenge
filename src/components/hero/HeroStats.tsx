@@ -1,5 +1,4 @@
 import { heroStats } from "../../data/content";
-import { CountUp } from "../ui/CountUp";
 import { Icon } from "../ui/Icon";
 
 export function HeroStats() {
@@ -10,7 +9,7 @@ export function HeroStats() {
           <li key={s.label} className="hero-stats__item">
             <span className="hero-stats__icon"><Icon name={s.icon} size={24} /></span>
             <span>
-              <span className="hero-stats__value"><CountUp value={s.value} /></span>
+              <span className="hero-stats__value">{s.value}</span>
               <span className="hero-stats__label t-body-sm">{s.label}</span>
             </span>
           </li>

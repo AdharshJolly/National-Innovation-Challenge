@@ -20,7 +20,7 @@ export function ProblemsIntro() {
         <dl className="phero__stats">
           <div><dd>{problemStatements.length}</dd><dt className="t-label">Problem briefs</dt></div>
           <div><dd>{tracks.length}</dd><dt className="t-label">Tracks</dt></div>
-          <div><dd>Class 12</dd><dt className="t-label">Eligibility</dt></div>
+          <div><dd>Class 12 Science</dd><dt className="t-label">Eligibility</dt></div>
         </dl>
         <nav className="ppick" aria-label="Jump to a track">
           {tracks.map((t) => {

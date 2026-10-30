@@ -15,15 +15,15 @@ export interface PageSeo {
 export const pages: PageSeo[] = [
   {
     path: "/",
-    title: "National Innovation Challenge | Class 12 Hackathon at CHRIST University",
+    title: "National Innovation Challenge | Class 12 Science Hackathon at CHRIST University",
     description:
-      "Class 12 national hackathon: pick AutoHack, ChargeUp or Buildathon, build a working prototype and win up to ₹3 lakh. Hosted by CHRIST University, Bangalore.",
+      "Class 12 Science stream national hackathon: pick AutoHack, ChargeUp or Buildathon, build a working prototype and win up to ₹3 lakh. Hosted by CHRIST University, Bangalore.",
     crumbs: [],
   },
   {
     path: "/problems",
     title: "Problem Statements | AutoHack, ChargeUp, Buildathon | National Innovation Challenge",
-    description: `Browse all ${problemStatements.length} problem statements across AutoHack (automotive), ChargeUp (e-mobility, clean energy) and Buildathon (civil, sustainability). Open to Class 12 students.`,
+    description: `Browse all ${problemStatements.length} problem statements across AutoHack (automotive), ChargeUp (e-mobility, clean energy) and Buildathon (civil, sustainability). Open to Class 12 Science stream students.`,
     crumbs: [["Problem Statements", "/problems"]],
   },
 ];
