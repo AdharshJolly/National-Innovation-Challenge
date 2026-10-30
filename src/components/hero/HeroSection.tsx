@@ -35,7 +35,7 @@ export function HeroSection() {
           </h1>
           <p className="t-body-lg hero__lead">Real problems. Real engineering. Real-world impact.</p>
           <div className="hero__ctas">
-            <Button variant="accent" size="lg" disabled>Registration Coming Soon</Button>
+            <Button variant="accent" size="lg" href={routes.register} target="_blank" rel="noopener noreferrer">Register Now</Button>
             <Button variant="outline-dark" size="lg" href={routes.challenge}>Explore the Challenge</Button>
           </div>
         </div>

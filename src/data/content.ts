@@ -8,7 +8,7 @@ export const routes = {
   support: "/#support",
   faq: "/#faq",
   contact: "/#contact",
-  register: "/#register", // → /register when built
+  register: "https://forms.gle/j2nYVEzjtiYBgm3N6",
 } as const;
 
 export const navLinks = [

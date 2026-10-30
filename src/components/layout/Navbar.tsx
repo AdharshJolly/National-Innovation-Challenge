@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { navLinks } from "../../data/content";
+import { navLinks, routes } from "../../data/content";
 import { useScrolled } from "../../hooks/useScrolled";
 import { Button } from "../ui/Button";
 import { Icon } from "../ui/Icon";
@@ -32,7 +32,7 @@ export function Navbar({ solid = false }: { solid?: boolean }) {
         </nav>
 
         <div className="nav__actions">
-          <Button variant="accent" className="nav__cta" disabled>Registration Coming Soon</Button>
+          <Button variant="accent" className="nav__cta" href={routes.register} target="_blank" rel="noopener noreferrer">Register Now</Button>
           <button
             type="button"
             className="nav__toggle"
@@ -51,7 +51,7 @@ export function Navbar({ solid = false }: { solid?: boolean }) {
           {navLinks.map((l) => (
             <a key={l.label} href={l.href} className="nav__drawer-link" onClick={() => setOpen(false)}>{l.label}</a>
           ))}
-          <Button variant="accent" className="nav__drawer-cta" disabled>Registration Coming Soon</Button>
+          <Button variant="accent" className="nav__drawer-cta" href={routes.register} target="_blank" rel="noopener noreferrer">Register Now</Button>
         </div>
       </nav>
     </header>
