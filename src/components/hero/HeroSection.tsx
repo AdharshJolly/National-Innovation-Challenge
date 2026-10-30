@@ -32,7 +32,7 @@ export function HeroSection() {
           </h1>
           <p className="t-body-lg hero__lead">A national challenge for Class 12 students. Choose one of three tracks, build a working solution, and compete for up to ₹3 lakh in prizes.</p>
           <div className="hero__ctas">
-            <Button variant="accent" size="lg" disabled>Registration opens soon</Button>
+            <Button variant="accent" size="lg" href={routes.register} target="_blank" rel="noopener noreferrer">Register Now</Button>
             <Button variant="outline-dark" size="lg" href={routes.tracks}>See the tracks</Button>
           </div>
         </div>

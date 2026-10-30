@@ -7,7 +7,7 @@ export const routes = {
   steps: "/#steps",
   support: "/#support",
   contact: "/#contact",
-  register: "/#register", // → /register when built
+  register: "https://forms.gle/j2nYVEzjtiYBgm3N6",
 } as const;
 
 /** Same order as the sections on the home page. */
