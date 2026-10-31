@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { prizePool, tracks } from "../../data/content";
 import { problemStatements, trackEvents } from "../../data/problems";
 import { Icon } from "../ui/Icon";
@@ -40,41 +39,6 @@ export function ProblemsIntro() {
         </nav>
       </div>
     </section>
-  );
-}
-
-/** Sticky track switcher; the active chip follows whichever track block is on screen. */
-export function ProblemsNav() {
-  const [active, setActive] = useState<string | null>(null);
-
-  useEffect(() => {
-    const blocks = tracks.map((t) => document.getElementById(trackAnchor(t.title))).filter((el): el is HTMLElement => !!el);
-    if (typeof IntersectionObserver === "undefined") return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) if (e.isIntersecting) setActive(e.target.id);
-      },
-      { rootMargin: "-35% 0px -55% 0px" },
-    );
-    blocks.forEach((b) => io.observe(b));
-    return () => io.disconnect();
-  }, []);
-
-  return (
-    <div className="pnav">
-      <nav className="pnav__inner container" aria-label="Tracks">
-        {tracks.map((t) => {
-          const id = trackAnchor(t.title);
-          return (
-            <a key={t.id} href={`#${id}`} data-track={t.id} className="pnav__chip" aria-current={active === id ? "true" : undefined}>
-              <span className="pnav__dot" aria-hidden="true" />
-              <span className="pnav__num">{t.number}</span>
-              {t.title}
-            </a>
-          );
-        })}
-      </nav>
-    </div>
   );
 }
 

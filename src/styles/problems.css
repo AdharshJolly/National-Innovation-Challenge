@@ -28,25 +28,9 @@ html.page-problems {
   .ppick__count svg { transition: transform var(--transition-standard); }
   .ppick__item:hover .ppick__count svg { transform: translateX(4px); }
 
-  /* ---------- sticky track switcher ---------- */
-  .pnav { position: sticky; top: var(--nav-height-mobile); z-index: 20; background: rgb(26 8 48 / 0.82); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-block: 1px solid var(--nic-violet-line-strong); }
-  @media (min-width: 1024px) { .pnav { top: var(--nav-height); } }
-  .pnav__inner { display: flex; gap: var(--space-2); padding-block: var(--space-2); overflow-x: auto; scrollbar-width: none; }
-  .pnav__inner::-webkit-scrollbar { display: none; }
-  .pnav__chip {
-    flex: none; display: inline-flex; align-items: center; gap: var(--space-2); min-height: 40px; padding: 0 var(--space-4);
-    border: 1px solid transparent; border-radius: var(--radius-pill); color: var(--nic-mist); font-weight: var(--fw-semibold); text-decoration: none;
-    transition: background var(--transition-standard), border-color var(--transition-standard), color var(--transition-standard);
-  }
-  .pnav__chip:hover { color: var(--nic-white); background: rgb(255 255 255 / 0.06); }
-  .pnav__chip[aria-current="true"] { color: var(--nic-white); background: rgb(255 255 255 / 0.1); border-color: var(--track-color); }
-  .pnav__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--track-color); }
-  .pnav__num { font-size: var(--fs-caption); color: var(--nic-slate-on-dark); font-variant-numeric: tabular-nums; }
-  .pnav__chip:focus-visible { outline: 2px solid var(--nic-cyan-bright); outline-offset: 2px; }
-
   /* ---------- track header ---------- */
-  .problems-track { scroll-margin-top: calc(var(--nav-height-mobile) + 56px); padding-block: var(--space-10) var(--space-12, 6rem); }
-  @media (min-width: 1024px) { .problems-track { scroll-margin-top: calc(var(--nav-height) + 56px); } }
+  .problems-track { scroll-margin-top: calc(var(--nav-height-mobile) + 16px); padding-block: var(--space-10) var(--space-12, 6rem); }
+  @media (min-width: 1024px) { .problems-track { scroll-margin-top: calc(var(--nav-height) + 16px); } }
   .pevent { gap: var(--space-5); padding-bottom: var(--space-6); }
   @media (min-width: 1024px) { .pevent { grid-template-columns: 1fr; } }
   .pevent__ghost { font-family: var(--font-display); font-weight: 800; color: color-mix(in srgb, var(--track-color) 12%, transparent); }

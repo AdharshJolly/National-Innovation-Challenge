@@ -3,7 +3,7 @@ import { Footer } from "./components/layout/Footer";
 import { Navbar } from "./components/layout/Navbar";
 import { HeroSection } from "./components/hero/HeroSection";
 import { TrackSection } from "./components/tracks/TrackSection";
-import { ProblemsIntro, ProblemsNav, TrackProblems } from "./components/problems/ProblemsSection";
+import { ProblemsIntro, TrackProblems } from "./components/problems/ProblemsSection";
 import { PrizeSection } from "./components/prizes/PrizeSection";
 import { StepsSection } from "./components/steps/StepsSection";
 import { SupportSection } from "./components/support/SupportSection";
@@ -31,7 +31,6 @@ function ProblemsPage() {
   return (
     <>
       <ProblemsIntro />
-      <ProblemsNav />
       {tracks.map((t) => (
         <TrackProblems key={t.id} trackId={t.id} />
       ))}
