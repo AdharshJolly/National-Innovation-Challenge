@@ -87,10 +87,9 @@ export const journeySteps = [
   // TODO(later): add dates to these steps once confirmed (registration deadline, submission deadline, Grand Finale).
   { number: "01", title: "Explore", text: "Read the problem statements and pick a track." },
   { number: "02", title: "Register", text: "Form a team of three or four and register." },
-  { number: "03", title: "Build", text: "Develop your prototype with guidance from mentors." },
-  { number: "04", title: "Submit", text: "Send in your solution for evaluation." },
-  { number: "05", title: "Finalists", text: "Top teams are invited to the Grand Finale." },
-  { number: "06", title: "Prizes", text: "Winners in each track share ₹1,00,000." },
+  { number: "03", title: "Submit", text: "Send in your solution for evaluation." },
+  { number: "04", title: "Present", text: "Present your solution to the evaluators." },
+  { number: "05", title: "Finale build", text: "Build your prototype at the Grand Finale." },
 ];
 
 // Hardware support was removed (not provided any more).

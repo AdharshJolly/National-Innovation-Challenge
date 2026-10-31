@@ -8,7 +8,7 @@ export function StepsSection() {
         <div className="how__head">
           <h2 className="how__title" id="how-title">From idea to podium</h2>
           <p className="how__lead">
-            Six steps, from choosing a track to winning a prize.
+            Five steps, from choosing a track to the finale build.
           </p>
         </div>
         <ol className="how-stack">
