@@ -25,6 +25,7 @@ export function StepsSection() {
               </div>
               <h3 className="how-stack__title">{s.title}</h3>
               <p className="how-stack__text">{s.text}</p>
+              {s.date && <p className="how-stack__date">{s.date}</p>}
             </li>
           ))}
         </ol>

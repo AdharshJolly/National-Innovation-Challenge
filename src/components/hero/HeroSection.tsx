@@ -1,4 +1,4 @@
-import { routes } from "../../data/content";
+import { registrationDeadline, routes } from "../../data/content";
 import GradientWaves from "../effects/GradientWaves";
 import { HeroVisual } from "../visuals/HeroVisual";
 import { Button } from "../ui/Button";
@@ -31,6 +31,10 @@ export function HeroSection() {
             <span className="hero__line text-spectrum">CHALLENGE</span>
           </h1>
           <p className="t-body-lg hero__lead">A national challenge for Class 12 Science stream students. Choose one of three tracks, build a working solution, and compete for up to ₹3 lakh in prizes.</p>
+          <p className="hero__deadline">
+            <span className="hero__deadline-dot" aria-hidden="true" />
+            {registrationDeadline}
+          </p>
           <div className="hero__ctas">
             <Button variant="accent" size="lg" href={routes.register} target="_blank" rel="noopener noreferrer">Register Now</Button>
             <Button variant="outline-dark" size="lg" href={routes.tracks}>See the tracks</Button>

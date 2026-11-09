@@ -83,10 +83,12 @@ export const tracks: Track[] = [
   },
 ];
 
-export const journeySteps = [
-  // TODO(later): add dates to these steps once confirmed (registration deadline, submission deadline, Grand Finale).
+export const registrationDeadline = "Last date to register: 25 Nov";
+
+export const journeySteps: { number: string; title: string; text: string; date?: string }[] = [
+  // TODO(later): add dates to the other steps once confirmed (submission deadline, Grand Finale).
   { number: "01", title: "Explore", text: "Read the problem statements and pick a track." },
-  { number: "02", title: "Register", text: "Form a team of three or four and register." },
+  { number: "02", title: "Register", text: "Form a team of three or four and register.", date: registrationDeadline },
   { number: "03", title: "Submit", text: "Send in your solution for evaluation." },
   { number: "04", title: "Present", text: "Present your solution to the evaluators." },
   { number: "05", title: "Finale build", text: "Build your prototype at the Grand Finale." },

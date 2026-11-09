@@ -144,6 +144,8 @@ svg, img { display: block; max-width: 100%; }
 .hero__title { display: grid; gap: 0; margin-bottom: var(--space-6); }
 .hero__line { display: block; }
 .hero__lead { color: var(--nic-mist); max-width: var(--measure-narrow); margin-bottom: var(--space-8); }
+.hero__deadline { display: inline-flex; align-items: center; gap: .6rem; margin: 0 0 var(--space-5); padding: .5rem 1rem; border: 1px solid var(--nic-cyan); border-radius: 999px; background: rgb(6 182 212 / .12); color: var(--nic-white); font-size: .9375rem; font-weight: 700; letter-spacing: .02em; }
+.hero__deadline-dot { width: .5rem; height: .5rem; border-radius: 50%; background: var(--nic-cyan); }
 .hero__ctas { display: flex; flex-wrap: wrap; gap: var(--space-3); }
 .hero__ctas .btn { flex: 1 1 220px; }
 .hero__visual {
@@ -263,6 +265,7 @@ svg, img { display: block; max-width: 100%; }
 .how-stack__card:nth-child(6) .how-stack__bar span.is-on { background: var(--nic-deep-violet); }
 .how-stack__title { position: relative; margin-bottom: .6rem; font: 800 clamp(2.25rem, 6.5vw, 4rem) / .95 "Unbounded Variable", var(--font-display); letter-spacing: -.04em; text-transform: none; color: var(--nic-white); }
 .how-stack__text { position: relative; margin: 0; max-width: 30ch; color: var(--nic-mist); font-size: 1.1875rem; line-height: 1.35; }
+.how-stack__date { position: relative; display: inline-block; margin: 1rem 0 0; padding: .4rem .85rem; border: 1px solid currentColor; border-radius: 999px; color: var(--nic-white); font-size: .9375rem; font-weight: 700; letter-spacing: .02em; }
 .how-stack__card:nth-child(6) .how-stack__title, .how-stack__card:nth-child(6) .how-stack__text { color: var(--nic-deep-violet); }
 @media (min-width: 900px) {
   .how-stack__card { min-height: 19rem; padding: 2.5rem 3rem; }
