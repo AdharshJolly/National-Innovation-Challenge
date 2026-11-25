@@ -32,6 +32,12 @@ export interface TrackEvent {
   judging: { label: string; weight?: string }[];
 }
 
+/** Notes that apply to every track; shown first on each. */
+const commonNotes = [
+  "Registration fee ₹300 per team, non-refundable.",
+  "Certificates for all participants.",
+];
+
 export const trackEvents: TrackEvent[] = [
   {
     id: "automobile",
@@ -41,10 +47,11 @@ export const trackEvents: TrackEvent[] = [
     eligibility: "Class 12 Science stream students",
     teamSize: "3 to 4 members",
     notes: [
+      ...commonNotes,
       "Choose one of five problem statements; 3–4 hours.",
       "Present as a concept, model or prototype; a simple working model is encouraged.",
       "Explain innovation, working principle, feasibility, estimated cost and expected benefits.",
-      "Certificates for all participants. Registration link, date and venue to be announced.",
+      "Registration link, date and venue to be announced.",
     ],
     judging: [
       { label: "Problem clarity" },
@@ -63,9 +70,9 @@ export const trackEvents: TrackEvent[] = [
     eligibility: "Class 12 Science stream students",
     teamSize: "3 to 4 members",
     notes: [
-      "Registration fee ₹300 per team, non-refundable.",
-      "Round 1: idea and online pitch. Proposals (3–4 page PDF) due 15 Nov.",
-      "Top 10 shortlist announced 30 Nov; four weeks of online mentorship in Dec.",
+      ...commonNotes,
+      "Round 1: idea and online pitch. Proposals are a 3–4 page PDF.",
+      "Top 10 shortlist is announced; four weeks of online mentorship in Dec.",
       "Round 2: Grand Finale, second week of Jan, at CHRIST University, with a live prototype.",
       "Every team submits a proposal PDF, a prototype or simulation, and a 3-minute demo video.",
     ],
@@ -85,7 +92,7 @@ export const trackEvents: TrackEvent[] = [
     theme: "Three themes, six problem statements",
     eligibility: "Class 12 Science stream students",
     teamSize: "3 to 4 members",
-    notes: ["Industry partners: Mantis Infra Solutions, MYK Laticrete India, Space Geo Tech."],
+    notes: [...commonNotes, "Industry partners: Mantis Infra Solutions, MYK Laticrete India, Space Geo Tech."],
     judging: [],
   },
 ];
